@@ -17,7 +17,7 @@
         	
         	<!-- Hibernate Properties -->
         	<property name="hibernate.dialect">org.hibernate.dialect.PostgreSQLDialect</property>
-        	<property name="hibernate.default_schema">P1</property>
+        	<property name="hibernate.default_schema">P2</property>
         	
         	<!-- Hibernate Console Output --> <!-- These will let us see our sql in the console -->
         	<property name="hibernate.show_sql">true</property>
@@ -28,10 +28,8 @@
         	<!-- remember, create drops your tables at runtime, update will simply update them -->
         	
         	<!-- We'll map our classes here -->
-        	<mapping class="com.revature.models.Reimbursement"/>
-        	<mapping class="com.revature.models.ReimbursementStatus"/>
-        	<mapping class="com.revature.models.ReimbursementType"/>
-        	<mapping class="com.revature.models.UserRoles"/>
+        	<mapping class="com.revature.models.Cart"/>
+        	<mapping class="com.revature.models.Animals"/>
         	<mapping class="com.revature.models.Users"/>
         	
         	</session-factory>
