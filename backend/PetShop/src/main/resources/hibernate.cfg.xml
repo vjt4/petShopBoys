@@ -12,12 +12,12 @@
         	<!-- JDBC credentials -->
         	<property name="hibernate.connection.username">postgres</property>
         	<property name="hibernate.connection.password">password</property>
-        	<property name="hibernate.connection.url">jdbc:postgresql://javafs210601.c9nlkbfksdw1.us-east-2.rds.amazonaws.com:5432/postgres?currentSchema=P2</property>
+        	<property name="hibernate.connection.url">jdbc:postgresql://localhost:5432/postgres?currentSchema=p2</property>
         	<property name="hibernate.connection.driver_class">org.postgresql.Driver</property>
         	
         	<!-- Hibernate Properties -->
         	<property name="hibernate.dialect">org.hibernate.dialect.PostgreSQLDialect</property>
-        	<property name="hibernate.default_schema">P2</property>
+        	<property name="hibernate.default_schema">p2</property>
         	
         	<!-- Hibernate Console Output --> <!-- These will let us see our sql in the console -->
         	<property name="hibernate.show_sql">true</property>
