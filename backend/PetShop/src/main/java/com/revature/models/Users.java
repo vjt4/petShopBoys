@@ -1,10 +1,14 @@
 package com.revature.models;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 @Entity
@@ -14,13 +18,16 @@ public class Users {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "users_id")
-	private int id;
+	private int userId;
 	
 	@Column(name= "username")
 	private String username;
 	
 	@Column(name= "password")
 	private String password;
+	
+	@Column(name = "active")
+	private boolean active;
 	
 	@Column(name= "first_name")
 	private String firstName;
@@ -43,47 +50,52 @@ public class Users {
 		// TODO Auto-generated constructor stub
 	}
 
-	public Users(int id, String username, String password, String firstName, String lastName, String email, boolean admin) {
+	public Users(int userId, String username, String password, boolean active, String firstName, String lastName,
+			String email, boolean admin) {
 		super();
-		this.id = id;
+		this.userId = userId;
 		this.username = username;
 		this.password = password;
+		this.active = active;
 		this.firstName = firstName;
 		this.lastName = lastName;
 		this.email = email;
 		this.admin = admin;
 	}
-
-	public Users(String username, String password, String firstName, String lastName, String email, boolean admin) {
+	
+	public Users(String username, String password, boolean active, String firstName, String lastName, String email,
+			boolean admin) {
 		super();
 		this.username = username;
 		this.password = password;
+		this.active = active;
 		this.firstName = firstName;
 		this.lastName = lastName;
 		this.email = email;
 		this.admin = admin;
 	}
-
+	
 	@Override
 	public String toString() {
-		return "Users [id=" + id + ", username=" + username + ", password=" + password + ", firstName=" + firstName
-				+ ", lastName=" + lastName + ", email=" + email + ", admin=" + admin + "]";
+		return "Users [userId=" + userId + ", username=" + username + ", password=" + password + ", active=" + active
+				+ ", firstName=" + firstName + ", lastName=" + lastName + ", email=" + email + ", admin=" + admin + "]";
 	}
-
+	
 	@Override
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
+		result = prime * result + (active ? 1231 : 1237);
 		result = prime * result + (admin ? 1231 : 1237);
 		result = prime * result + ((email == null) ? 0 : email.hashCode());
 		result = prime * result + ((firstName == null) ? 0 : firstName.hashCode());
-		result = prime * result + id;
 		result = prime * result + ((lastName == null) ? 0 : lastName.hashCode());
 		result = prime * result + ((password == null) ? 0 : password.hashCode());
+		result = prime * result + userId;
 		result = prime * result + ((username == null) ? 0 : username.hashCode());
 		return result;
 	}
-
+	
 	@Override
 	public boolean equals(Object obj) {
 		if (this == obj)
@@ -93,6 +105,8 @@ public class Users {
 		if (getClass() != obj.getClass())
 			return false;
 		Users other = (Users) obj;
+		if (active != other.active)
+			return false;
 		if (admin != other.admin)
 			return false;
 		if (email == null) {
@@ -105,8 +119,6 @@ public class Users {
 				return false;
 		} else if (!firstName.equals(other.firstName))
 			return false;
-		if (id != other.id)
-			return false;
 		if (lastName == null) {
 			if (other.lastName != null)
 				return false;
@@ -117,6 +129,8 @@ public class Users {
 				return false;
 		} else if (!password.equals(other.password))
 			return false;
+		if (userId != other.userId)
+			return false;
 		if (username == null) {
 			if (other.username != null)
 				return false;
@@ -124,13 +138,13 @@ public class Users {
 			return false;
 		return true;
 	}
-
-	public int getId() {
-		return id;
+	
+	public int getUserId() {
+		return userId;
 	}
 	
-	public void setId(int id) {
-		this.id = id;
+	public void setUserId(int userId) {
+		this.userId = userId;
 	}
 	
 	public String getUsername() {
@@ -147,6 +161,14 @@ public class Users {
 	
 	public void setPassword(String password) {
 		this.password = password;
+	}
+	
+	public boolean isActive() {
+		return active;
+	}
+	
+	public void setActive(boolean active) {
+		this.active = active;
 	}
 	
 	public String getFirstName() {
@@ -180,5 +202,7 @@ public class Users {
 	public void setAdmin(boolean admin) {
 		this.admin = admin;
 	}
+
+	
 	
 }

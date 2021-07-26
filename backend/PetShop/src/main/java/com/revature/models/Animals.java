@@ -14,7 +14,7 @@ public class Animals {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "animal_id")
-	private int id;
+	private int animalId;
 	
 	@Column(name = "name")
 	private String name;
@@ -33,6 +33,9 @@ public class Animals {
 	
 	@Column(name = "size")
 	private String size;
+	
+	@Column(name = "price")
+	private double price;
 
 	@Column(name = "picture")
 	private String picture;
@@ -42,34 +45,38 @@ public class Animals {
 		// TODO Auto-generated constructor stub
 	}
 
-	public Animals(int id, String name, String species, String breed, String age, String gender, String size,
+	public Animals(String name, String species, String breed, String age, String gender, String size, int price,
 			String picture) {
 		super();
-		this.id = id;
 		this.name = name;
 		this.species = species;
 		this.breed = breed;
 		this.age = age;
 		this.gender = gender;
 		this.size = size;
+		this.price = price;
 		this.picture = picture;
 	}
 
-	public Animals(String name, String species, String breed, String age, String gender, String size, String picture) {
+	public Animals(int animalId, String name, String species, String breed, String age, String gender, String size,
+			int price, String picture) {
 		super();
+		this.animalId = animalId;
 		this.name = name;
 		this.species = species;
 		this.breed = breed;
 		this.age = age;
 		this.gender = gender;
 		this.size = size;
+		this.price = price;
 		this.picture = picture;
 	}
 
 	@Override
 	public String toString() {
-		return "Animals [id=" + id + ", name=" + name + ", species=" + species + ", breed=" + breed + ", age=" + age
-				+ ", gender=" + gender + ", size=" + size + ", picture=" + picture + "]";
+		return "Animals [animalId=" + animalId + ", name=" + name + ", species=" + species + ", breed=" + breed
+				+ ", age=" + age + ", gender=" + gender + ", size=" + size + ", price=" + price + ", picture=" + picture
+				+ "]";
 	}
 
 	@Override
@@ -77,11 +84,14 @@ public class Animals {
 		final int prime = 31;
 		int result = 1;
 		result = prime * result + ((age == null) ? 0 : age.hashCode());
+		result = prime * result + animalId;
 		result = prime * result + ((breed == null) ? 0 : breed.hashCode());
 		result = prime * result + ((gender == null) ? 0 : gender.hashCode());
-		result = prime * result + id;
 		result = prime * result + ((name == null) ? 0 : name.hashCode());
 		result = prime * result + ((picture == null) ? 0 : picture.hashCode());
+		long temp;
+		temp = Double.doubleToLongBits(price);
+		result = prime * result + (int) (temp ^ (temp >>> 32));
 		result = prime * result + ((size == null) ? 0 : size.hashCode());
 		result = prime * result + ((species == null) ? 0 : species.hashCode());
 		return result;
@@ -101,6 +111,8 @@ public class Animals {
 				return false;
 		} else if (!age.equals(other.age))
 			return false;
+		if (animalId != other.animalId)
+			return false;
 		if (breed == null) {
 			if (other.breed != null)
 				return false;
@@ -111,8 +123,6 @@ public class Animals {
 				return false;
 		} else if (!gender.equals(other.gender))
 			return false;
-		if (id != other.id)
-			return false;
 		if (name == null) {
 			if (other.name != null)
 				return false;
@@ -122,6 +132,8 @@ public class Animals {
 			if (other.picture != null)
 				return false;
 		} else if (!picture.equals(other.picture))
+			return false;
+		if (Double.doubleToLongBits(price) != Double.doubleToLongBits(other.price))
 			return false;
 		if (size == null) {
 			if (other.size != null)
@@ -136,12 +148,12 @@ public class Animals {
 		return true;
 	}
 
-	public int getId() {
-		return id;
+	public int getAnimalId() {
+		return animalId;
 	}
 
-	public void setId(int id) {
-		this.id = id;
+	public void setAnimalId(int animalId) {
+		this.animalId = animalId;
 	}
 
 	public String getName() {
@@ -192,6 +204,14 @@ public class Animals {
 		this.size = size;
 	}
 
+	public double getPrice() {
+		return price;
+	}
+
+	public void setPrice(double price) {
+		this.price = price;
+	}
+
 	public String getPicture() {
 		return picture;
 	}
@@ -199,5 +219,5 @@ public class Animals {
 	public void setPicture(String picture) {
 		this.picture = picture;
 	}
-	
+
 }
