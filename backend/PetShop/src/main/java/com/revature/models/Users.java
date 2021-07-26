@@ -1,10 +1,14 @@
 package com.revature.models;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 @Entity
@@ -36,14 +40,31 @@ public class Users {
 	
 	@Column(name = "isAdmin")
 	private boolean admin;
+	
+	@OneToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+	@JoinColumn(name = "users_id_fk")
+	private Cart cartId;
 
 	public Users() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
 
+	public Users(String username, String password, boolean active, String firstName, String lastName, String email,
+			boolean admin, Cart cartId) {
+		super();
+		this.username = username;
+		this.password = password;
+		this.active = active;
+		this.firstName = firstName;
+		this.lastName = lastName;
+		this.email = email;
+		this.admin = admin;
+		this.cartId = cartId;
+	}
+
 	public Users(int userId, String username, String password, boolean active, String firstName, String lastName,
-			String email, boolean admin) {
+			String email, boolean admin, Cart cartId) {
 		super();
 		this.userId = userId;
 		this.username = username;
@@ -53,32 +74,23 @@ public class Users {
 		this.lastName = lastName;
 		this.email = email;
 		this.admin = admin;
+		this.cartId = cartId;
 	}
-	
-	public Users(String username, String password, boolean active, String firstName, String lastName, String email,
-			boolean admin) {
-		super();
-		this.username = username;
-		this.password = password;
-		this.active = active;
-		this.firstName = firstName;
-		this.lastName = lastName;
-		this.email = email;
-		this.admin = admin;
-	}
-	
+
 	@Override
 	public String toString() {
 		return "Users [userId=" + userId + ", username=" + username + ", password=" + password + ", active=" + active
-				+ ", firstName=" + firstName + ", lastName=" + lastName + ", email=" + email + ", admin=" + admin + "]";
+				+ ", firstName=" + firstName + ", lastName=" + lastName + ", email=" + email + ", admin=" + admin
+				+ ", cartId=" + cartId + "]";
 	}
-	
+
 	@Override
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
 		result = prime * result + (active ? 1231 : 1237);
 		result = prime * result + (admin ? 1231 : 1237);
+		result = prime * result + ((cartId == null) ? 0 : cartId.hashCode());
 		result = prime * result + ((email == null) ? 0 : email.hashCode());
 		result = prime * result + ((firstName == null) ? 0 : firstName.hashCode());
 		result = prime * result + ((lastName == null) ? 0 : lastName.hashCode());
@@ -87,7 +99,7 @@ public class Users {
 		result = prime * result + ((username == null) ? 0 : username.hashCode());
 		return result;
 	}
-	
+
 	@Override
 	public boolean equals(Object obj) {
 		if (this == obj)
@@ -100,6 +112,11 @@ public class Users {
 		if (active != other.active)
 			return false;
 		if (admin != other.admin)
+			return false;
+		if (cartId == null) {
+			if (other.cartId != null)
+				return false;
+		} else if (!cartId.equals(other.cartId))
 			return false;
 		if (email == null) {
 			if (other.email != null)
@@ -130,71 +147,77 @@ public class Users {
 			return false;
 		return true;
 	}
-	
+
 	public int getUserId() {
 		return userId;
 	}
-	
+
 	public void setUserId(int userId) {
 		this.userId = userId;
 	}
-	
+
 	public String getUsername() {
 		return username;
 	}
-	
+
 	public void setUsername(String username) {
 		this.username = username;
 	}
-	
+
 	public String getPassword() {
 		return password;
 	}
-	
+
 	public void setPassword(String password) {
 		this.password = password;
 	}
-	
+
 	public boolean isActive() {
 		return active;
 	}
-	
+
 	public void setActive(boolean active) {
 		this.active = active;
 	}
-	
+
 	public String getFirstName() {
 		return firstName;
 	}
-	
+
 	public void setFirstName(String firstName) {
 		this.firstName = firstName;
 	}
-	
+
 	public String getLastName() {
 		return lastName;
 	}
-	
+
 	public void setLastName(String lastName) {
 		this.lastName = lastName;
 	}
-	
+
 	public String getEmail() {
 		return email;
 	}
-	
+
 	public void setEmail(String email) {
 		this.email = email;
 	}
-	
+
 	public boolean isAdmin() {
 		return admin;
 	}
-	
+
 	public void setAdmin(boolean admin) {
 		this.admin = admin;
 	}
 
-	
-	
+	public Cart getCartId() {
+		return cartId;
+	}
+
+	public void setCartId(Cart cartId) {
+		this.cartId = cartId;
+	}
+
 }
