@@ -1,15 +1,10 @@
 package com.revature.models;
 
-import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
-import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 @Entity
@@ -23,39 +18,32 @@ public class Cart {
 	
 	@Column(name = "total")
 	private double total;
-	
-	@ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
-	@JoinColumn(name = "animal_id_fk")
-	private Animals animalId;
 
 	public Cart() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
 
-	public Cart(double total, Animals animalId) {
+	public Cart(double total) {
 		super();
 		this.total = total;
-		this.animalId = animalId;
 	}
 
-	public Cart(int cartId, double total, Animals animalId) {
+	public Cart(int cartId, double total) {
 		super();
 		this.cartId = cartId;
 		this.total = total;
-		this.animalId = animalId;
 	}
 
 	@Override
 	public String toString() {
-		return "Cart [cartId=" + cartId + ", total=" + total + ", animalId=" + animalId + "]";
+		return "Cart [cartId=" + cartId + ", total=" + total + "]";
 	}
 
 	@Override
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
-		result = prime * result + ((animalId == null) ? 0 : animalId.hashCode());
 		result = prime * result + cartId;
 		long temp;
 		temp = Double.doubleToLongBits(total);
@@ -72,11 +60,6 @@ public class Cart {
 		if (getClass() != obj.getClass())
 			return false;
 		Cart other = (Cart) obj;
-		if (animalId == null) {
-			if (other.animalId != null)
-				return false;
-		} else if (!animalId.equals(other.animalId))
-			return false;
 		if (cartId != other.cartId)
 			return false;
 		if (Double.doubleToLongBits(total) != Double.doubleToLongBits(other.total))
@@ -100,12 +83,4 @@ public class Cart {
 		this.total = total;
 	}
 
-	public Animals getAnimalId() {
-		return animalId;
-	}
-
-	public void setAnimalId(Animals animalId) {
-		this.animalId = animalId;
-	}
-	
 }
