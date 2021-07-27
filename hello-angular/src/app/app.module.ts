@@ -1,24 +1,26 @@
-import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
 import { BrowserModule } from '@angular/platform-browser';
+import { CommonModule } from '@angular/common';
+import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { AppRoutingModule } from './app-routing.module';
+
 import { AppComponent } from './app.component';
-import { LoginComponent } from './login/login.component';
-import { NavbarComponent } from './navbar/navbar.component';
-import { RouterModule } from '@angular/router/src/router_module';
+import { RouterModule } from '@angular/router';
 import { SharedBootstrapModule } from './shared/shared-bootstrap.module';
 
 @NgModule({
-  declarations: [AppComponent, LoginComponent, NavbarComponent],
+  declarations: [AppComponent],
   imports: [
     BrowserModule,
-    AppRoutingModule,
     CommonModule,
     FormsModule,
+    AppRoutingModule,
     SharedBootstrapModule,
+    BrowserAnimationsModule,
   ],
+  exports: [],
   providers: [],
   bootstrap: [AppComponent],
 })
