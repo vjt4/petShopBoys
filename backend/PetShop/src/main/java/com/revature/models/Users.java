@@ -62,6 +62,16 @@ public class Users {
 		this.admin = admin;
 		this.cartId = cartId;
 	}
+	
+	public Users(String username, String password, String firstName, String lastName, String email, boolean admin) {
+		super();
+		this.username = username;
+		this.password = password;
+		this.firstName = firstName;
+		this.lastName = lastName;
+		this.email = email;
+		this.admin = admin;
+	}
 
 	public Users(int userId, String username, String password, boolean active, String firstName, String lastName,
 			String email, boolean admin, Cart cartId) {

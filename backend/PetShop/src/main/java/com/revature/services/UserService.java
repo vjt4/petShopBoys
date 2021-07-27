@@ -14,7 +14,7 @@ public class UserService {
 		uDAO.newUser(newUser);
 	}
 	
-	public List<Users> getAllusers(){
+	public List<Users> getAllUsers(){
 		return uDAO.getAllUsers();
 	}
 	

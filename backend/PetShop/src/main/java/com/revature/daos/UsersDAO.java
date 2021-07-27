@@ -69,6 +69,30 @@ public class UsersDAO implements UsersInterface{
 		HibernateUtil.closeSession();
 		
 	}
+	
+	@Override
+	public boolean isPresent(String username) {
+		
+		Session ses = HibernateUtil.getSession();
+		boolean isPresent = false;
+		
+		List<Users> userList = getAllUsers();
+		
+		for(Users u : userList) {
+			
+			if(u.getUsername().compareTo(username) == 0) {
+				
+				isPresent = true;
+				
+			}
+			
+		}
+		
+		HibernateUtil.closeSession();
+		
+		return isPresent;
+		
+	}
 
 	
 	
