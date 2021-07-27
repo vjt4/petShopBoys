@@ -9,9 +9,16 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { RouterModule } from '@angular/router';
 import { SharedBootstrapModule } from './shared/shared-bootstrap.module';
+import { LoginComponent } from './login/login.component';
+import { HomeComponent } from './home/home.component';
 
 @NgModule({
-  declarations: [AppComponent],
+  declarations: [
+    AppComponent,
+    LoginComponent,
+    HomeComponent,
+    //declare components here
+  ],
   imports: [
     BrowserModule,
     CommonModule,
