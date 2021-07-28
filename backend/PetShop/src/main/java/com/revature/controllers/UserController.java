@@ -49,7 +49,7 @@ public class UserController {
 	}
 	
 	//A added http req param
-	public void getAllUsers(HttpServletResponse res, HttpServletRequest req) throws IOException {
+	public void getAllUsers(HttpServletRequest req, HttpServletResponse res) throws IOException {
 		
 		List<Users> userList = us.getAllUsers();
 		
