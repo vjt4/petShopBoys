@@ -9,7 +9,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.revature.controllers.LoginController;
 import com.revature.controllers.UserController;
-import com.revature.models.LoginDTO;
+//import com.revature.models.LoginDTO;
 
 public class MasterServlet extends HttpServlet{
 	
@@ -17,15 +17,12 @@ public class MasterServlet extends HttpServlet{
 	private UserController userController = new UserController();
 	private LoginController loginController = new LoginController();
 	
-	
-	
-	
 	protected void doGet(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException{
 		
 		res.setContentType("application/json");
 		res.setStatus(404);
 		
-		String URI = req.getRequestURI().replace("/Project1/", "");
+		String URI = req.getRequestURI().replace("/PetShop/", ""); //Change URI if your project name is different
 		
 		
 		switch(URI) {
