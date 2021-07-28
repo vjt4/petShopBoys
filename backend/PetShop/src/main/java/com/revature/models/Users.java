@@ -42,7 +42,7 @@ public class Users {
 	private boolean admin;
 	
 	@OneToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
-	@JoinColumn(name = "users_id_fk")
+	@JoinColumn(name = "cart_id_fk")
 	private Cart cartId;
 
 	public Users() {

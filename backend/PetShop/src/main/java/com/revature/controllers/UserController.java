@@ -48,7 +48,8 @@ public class UserController {
 	
 	}
 	
-	public void getAllUsers(HttpServletResponse res) throws IOException {
+	//A added http req param
+	public void getAllUsers(HttpServletResponse res, HttpServletRequest req) throws IOException {
 		
 		List<Users> userList = us.getAllUsers();
 		
