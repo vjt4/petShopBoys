@@ -1,4 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
+import { AllPetsComponent } from '../all-pets/all-pets.component';
+
+//aps.petArray;
 
 @Component({
   selector: 'app-single-pet',
@@ -6,8 +9,12 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./single-pet.component.css']
 })
 export class SinglePetComponent implements OnInit {
+  
+  //let pets: Array<any> = AllPetsComponent.petArray;
+  
+  //@Input() data: any[];
 
-  constructor() { }
+  constructor(private aps: AllPetsComponent) { }
 
   ngOnInit(): void {
   }

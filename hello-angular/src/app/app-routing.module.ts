@@ -4,6 +4,7 @@ import { AllPetsComponent } from './components/all-pets/all-pets.component';
 import { HomeComponent } from './components/home/home.component';
 import { LoginComponent } from './components/login/login.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
+import { SinglePetComponent } from './components/single-pet/single-pet.component';
 
 const routes: Routes = [
   {
@@ -31,6 +32,11 @@ const routes: Routes = [
   {
     path: 'allpets',
     component: AllPetsComponent,
+  },
+
+  {
+    path: 'singlepet',
+    component: SinglePetComponent,
   },
 ];
 

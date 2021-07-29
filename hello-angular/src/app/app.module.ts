@@ -34,7 +34,9 @@ import { AllPetsComponent } from './components/all-pets/all-pets.component';
     BrowserAnimationsModule,
   ],
   exports: [],
-  providers: [],
+  providers: [
+    AllPetsComponent
+  ],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
