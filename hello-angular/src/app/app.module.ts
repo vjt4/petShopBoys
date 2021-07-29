@@ -15,6 +15,7 @@ import { HomeComponent } from './components/home/home.component';
 import { SinglePetComponent } from './components/single-pet/single-pet.component';
 import { AllPetsComponent } from './components/all-pets/all-pets.component';
 import { AboutComponent } from './components/about/about.component';
+import { SharedDataService } from './Models/Shared-data.service';
 
 @NgModule({
   declarations: [
@@ -36,7 +37,7 @@ import { AboutComponent } from './components/about/about.component';
     BrowserAnimationsModule,
   ],
   exports: [],
-  providers: [],
+  providers: [SharedDataService],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

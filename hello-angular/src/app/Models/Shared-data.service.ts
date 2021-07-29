@@ -1,0 +1,7 @@
+import { Injectable } from '@angular/core';
+
+@Injectable()
+export class SharedDataService {
+  username = 'rckstr';
+  constructor() {}
+}
