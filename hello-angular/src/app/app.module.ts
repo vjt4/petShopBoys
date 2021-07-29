@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { HttpClientModule } from '@angular/common/http';
 
 import { AppRoutingModule } from './app-routing.module';
 import { NavbarComponent } from './components/navbar/navbar.component';
@@ -32,6 +33,7 @@ import { AllPetsComponent } from './components/all-pets/all-pets.component';
     AppRoutingModule,
     SharedBootstrapModule,
     BrowserAnimationsModule,
+    HttpClientModule
   ],
   exports: [],
   providers: [
