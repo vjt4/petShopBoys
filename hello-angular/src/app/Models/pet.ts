@@ -1,4 +1,4 @@
-export interface pet {
+export interface Pet {
   name: string;
 }
 
