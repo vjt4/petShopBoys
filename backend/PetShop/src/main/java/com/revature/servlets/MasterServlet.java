@@ -32,13 +32,6 @@ public class MasterServlet extends HttpServlet{
 		
 		switch(URI) {
 		
-		
-		case "login":
-		{
-			System.out.println("Login to account");
-			lc.login(req, res);
-			break;
-		}
 			
 		case "user":
 		{
