@@ -20,6 +20,7 @@ public class UserController {
 	private ObjectMapper om = new ObjectMapper();
 	
 	public void createAccount(HttpServletRequest req, HttpServletResponse res) throws IOException{
+		System.out.println("in my controller");
 		
 		BufferedReader reader = req.getReader();
 		StringBuilder sb = new StringBuilder();
@@ -33,6 +34,8 @@ public class UserController {
 		String body = new String(sb);
 		
 		AccountDTO aDTO = om.readValue(body,  AccountDTO.class);
+		
+		System.out.println(aDTO.getUsername());
 		
 		if(!uDAO.isPresent(aDTO.getUsername())) {
 			

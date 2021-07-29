@@ -44,6 +44,8 @@ public class LoginController {
 				
 				ses.setAttribute("LoggedIn", true);
 				
+				ls.updateToActive(lDTO.username);
+				
 				res.setStatus(200);
 				
 				res.getWriter().print("Login was successful");

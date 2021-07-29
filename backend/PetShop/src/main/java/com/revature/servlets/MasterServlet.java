@@ -41,6 +41,7 @@ public class MasterServlet extends HttpServlet{
 		}
 		case "pet":
 		{
+			//returns all of the pets
 			System.out.println("Get list of pets");
 			ac.getAllAnimals(req, res);
 			break;
@@ -69,6 +70,7 @@ protected void doPost(HttpServletRequest req, HttpServletResponse res) throws Se
 		
 		case "create-account":
 		{
+			//create user works
 			System.out.println("Create Account");
 			uc.createAccount(req, res);
 			break;
@@ -76,6 +78,7 @@ protected void doPost(HttpServletRequest req, HttpServletResponse res) throws Se
 		
 		case "login":
 		{
+			//login works
 			System.out.println("Login to account");
 			lc.login(req, res);
 			break;
@@ -86,14 +89,9 @@ protected void doPost(HttpServletRequest req, HttpServletResponse res) throws Se
 			System.out.println("in cart");
 			break;
 		}
-		case "user":
-		{
-			System.out.println("Get list of users");
-			uc.getAllUsers(req, res);
-			break;
-		}
 		case "populate":
 		{
+			//This is to populate an empty db
 			System.out.println("Populating tables");
 			populate.please();
 			break;
