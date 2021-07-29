@@ -35,24 +35,6 @@ public class CartDAO implements CartInterface{
 		
 	}
 	
-	@Override
-	public void addToCart(int animal_id) {
-
-//		Session ses = HibernateUtil.getSession();
-//		
-//		Animals animal = aDAO.getAnimalById(animal_id);
-//		
-//		if(animal != null) {
-//			
-//		}
-		
-	}
-
-	@Override
-	public void removeFromCart(int animal_id) {
-		// TODO Auto-generated method stub
-		
-	}
 	
 	@Override
 	public void updateCart(Cart cart) {
@@ -73,6 +55,18 @@ public class CartDAO implements CartInterface{
 		ses.delete(cart);
 		
 		HibernateUtil.closeSession();
+		
+	}
+
+	@Override
+	public void addToCart(int animal_id) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void removeFromCart(int animal_id) {
+		// TODO Auto-generated method stub
 		
 	}
 
