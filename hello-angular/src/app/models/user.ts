@@ -9,7 +9,4 @@ export class User {
         public email:string,
         public isAdmin:boolean,
     ){}
-    
-
-
 }
