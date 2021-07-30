@@ -43,9 +43,11 @@ public class UserController {
 			
 			uDAO.newUser(newUser);
 			
+			String json = om.writeValueAsString(newUser);
+			
 			res.setStatus(201);
 			
-			res.getWriter().print("Account successfully created!");		
+			res.getWriter().print(json);		
 			
 		}
 	

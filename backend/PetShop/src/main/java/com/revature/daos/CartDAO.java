@@ -9,8 +9,7 @@ import com.revature.utils.HibernateUtil;
 public class CartDAO implements CartInterface{
 
 	AnimalsDAO aDAO = new AnimalsDAO();
-	CartDAO cDAO = new CartDAO();
-	
+		
 	@Override
 	public void newCart(Cart newCart) {
 

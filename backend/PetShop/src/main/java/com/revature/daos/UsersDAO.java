@@ -57,7 +57,7 @@ public class UsersDAO implements UsersInterface{
 		Users u =  (Users) ses.createQuery("from Users where username = :username")
 				.setParameter("username", username).uniqueResult();
 		
-		HibernateUtil.closeSession();
+//		HibernateUtil.closeSession();
 		
 //		Users result = (Users) query.uniqueResult();
 //		return result;

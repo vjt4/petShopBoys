@@ -33,9 +33,18 @@ public class CartController {
 		
 		CartDTO cDTO = om.readValue(body, CartDTO.class);
 		
-		Cart newCart = new Cart();
+		Cart newCart = new Cart(Integer.parseInt(cDTO.getId()),Double.parseDouble(cDTO.getTotal()));
 		
 		cDAO.newCart(newCart);
+		
+		String json = om.writeValueAsString(newCart);
+		res.setContentType("application/json");
+		res.getWriter().print(json);
+		
+	}
+	
+	public void deleteCart(HttpServletRequest req, HttpServletResponse res) throws IOException{
+		
 		
 	}
 	

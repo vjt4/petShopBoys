@@ -9,6 +9,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.revature.Populate;
 import com.revature.controllers.AnimalController;
+import com.revature.controllers.CartController;
 import com.revature.controllers.LoginController;
 import com.revature.controllers.UserController;
 //import com.revature.models.LoginDTO;
@@ -18,6 +19,7 @@ public class MasterServlet extends HttpServlet{
 	
 	//Controllers go here
 	private AnimalController ac = new AnimalController();
+	private CartController cc = new CartController();
 	private UserController uc = new UserController();
 	private LoginController lc = new LoginController();
 	private Populate populate = new Populate();
@@ -35,6 +37,7 @@ public class MasterServlet extends HttpServlet{
 			
 		case "user":
 		{
+			//gets a list of all users
 			System.out.println("Get list of users");
 			uc.getAllUsers(req, res);
 			break;
@@ -54,7 +57,7 @@ public class MasterServlet extends HttpServlet{
 	
 protected void doPost(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException{
 		
-		res.setContentType("application/html");
+		res.setContentType("text/html");
 		
 		res.setStatus(404);
 		
@@ -78,9 +81,11 @@ protected void doPost(HttpServletRequest req, HttpServletResponse res) throws Se
 			break;
 		}
 			
-		case "cart":
+		case "create-cart":
 		{
+			//requires animals json
 			System.out.println("in cart");
+			cc.newCart(req, res);
 			break;
 		}
 		case "populate":
