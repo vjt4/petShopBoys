@@ -76,8 +76,7 @@ public class UsersDAO implements UsersInterface{
 		Session ses = HibernateUtil.getSession();
 		boolean isPresent = false;
 		
-		List<Users> userList = getAllUsers();
-		
+		List<Users> userList = ses.createQuery("from Users").list();		
 		for(Users u : userList) {
 			
 			if(u.getUsername().compareTo(username) == 0) {
