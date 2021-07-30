@@ -29,5 +29,8 @@ public class LoginService {
 	public void updateToActive(String username) {
 		lDAO.updateToActive(username);
 	}
+	public void updateToInactive(String username) {
+		lDAO.updateToInactive(username);
+	}
 	
 }

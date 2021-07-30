@@ -80,10 +80,17 @@ protected void doPost(HttpServletRequest req, HttpServletResponse res) throws Se
 			lc.login(req, res);
 			break;
 		}
+		case "logout":
+		{
+			//
+			System.out.println("Login to account");
+			lc.logout(req, res);
+			break;
+		}
 			
 		case "create-cart":
 		{
-			//requires animals json
+			//
 			System.out.println("in cart");
 			cc.newCart(req, res);
 			break;
