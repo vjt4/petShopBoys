@@ -5,7 +5,7 @@ import { HomeComponent } from './components/home/home.component';
 import { LoginComponent } from './components/login/login.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { SinglePetComponent } from './components/single-pet/single-pet.component';
-
+import { PetsComponent } from './components/pets/pets.component';
 const routes: Routes = [
   {
     path: '',
@@ -30,9 +30,12 @@ const routes: Routes = [
     component: HomeComponent,
   },
   {
-    path: 'allpets',
-    component: AllPetsComponent,
-    children: [{ path: 'singlepet/:id', component: SinglePetComponent }],
+    path: 'pets',
+    component: PetsComponent,
+    children: [
+      { path: 'singlepet/:id', component: SinglePetComponent },
+      { path: 'allpets', component: AllPetsComponent },
+    ],
   },
 
   {

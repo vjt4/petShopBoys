@@ -15,6 +15,7 @@ import { LoginComponent } from './components/login/login.component';
 import { HomeComponent } from './components/home/home.component';
 import { SinglePetComponent } from './components/single-pet/single-pet.component';
 import { AllPetsComponent } from './components/all-pets/all-pets.component';
+import { PetsComponent } from './components/pets/pets.component';
 
 @NgModule({
   declarations: [
@@ -24,6 +25,7 @@ import { AllPetsComponent } from './components/all-pets/all-pets.component';
     SinglePetComponent,
     NavbarComponent,
     AllPetsComponent,
+    PetsComponent,
     //declare components here
   ],
   imports: [
@@ -33,12 +35,10 @@ import { AllPetsComponent } from './components/all-pets/all-pets.component';
     AppRoutingModule,
     SharedBootstrapModule,
     BrowserAnimationsModule,
-    HttpClientModule
+    HttpClientModule,
   ],
   exports: [],
-  providers: [
-    AllPetsComponent
-  ],
+  providers: [AllPetsComponent],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

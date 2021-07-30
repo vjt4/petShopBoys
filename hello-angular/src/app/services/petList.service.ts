@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import samplePets from '../models/samplepets';
+import samplePets from '../models/samplePets';
 import { PetsInterface } from '../models/petsInterface';
 import { JsonpClientBackend } from '@angular/common/http';
 

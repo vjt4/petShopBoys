@@ -1,7 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { PetsService } from 'src/app/services/pets.service';
 import { PetsInterface } from 'src/app/models/petsInterface';
-import samplePets from 'src/app/models/samplepets';
+import samplePets from 'src/app/models/samplePets';
 
 @Component({
   selector: 'app-all-pets',
