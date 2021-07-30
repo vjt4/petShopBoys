@@ -14,6 +14,7 @@ export class LoginComponent implements OnInit {
   public username:string = "";
   public password:string = "";
   public userLogin:any = null;
+  public loggedIn:boolean = false;
 
   constructor(private LoginService: LoginService) {}
 
@@ -27,11 +28,12 @@ export class LoginComponent implements OnInit {
         password: this.password
 
       }
-
+      console.log(userCredentials);
       this.LoginService.loginUser(userCredentials).subscribe(
         (data:Userlogin) => {
           this.userLogin = data;
           console.log(this.userLogin);
+          this.loggedIn = true;
         },
 
         () => {
