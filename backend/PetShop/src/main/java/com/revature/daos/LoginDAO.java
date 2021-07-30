@@ -24,14 +24,14 @@ public class LoginDAO {
 			return null;
 	}
 	
-	public void updateToActive(String username) {
-		Session ses = HibernateUtil.getSession();
-		Users user = (Users) ses.createQuery("Update Users U set U.actuve = true WHERE U.username = :username")
-				.setParameter("username", username);
-		System.out.println("User: " + username + " is now active !");
-		
-		HibernateUtil.closeSession();
-	}
+//	public void updateToActive(String username) {
+//		Session ses = HibernateUtil.getSession();
+//		Users user = (Users) ses.createQuery("Update Users U set U.actuve = true WHERE U.username = :username")
+//				.setParameter("username", username);
+//		System.out.println("User: " + username + " is now active !");
+//		
+//		HibernateUtil.closeSession();
+//	}
 	
 
 }

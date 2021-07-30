@@ -3,6 +3,7 @@ package com.revature.daos;
 import java.util.List;
 
 import org.hibernate.Session;
+import org.hibernate.query.Query;
 
 import com.revature.models.Users;
 import com.revature.utils.HibernateUtil;
@@ -51,11 +52,13 @@ public class UsersDAO implements UsersInterface{
 
 		Session ses = HibernateUtil.getSession();
 		
-		Users user = ses.get(Users.class, username);
+		//need a query here instead of using ses.get()
+		Query query = ses.createQuery("from Users where username = :username").setParameter("username", username);
 		
 		HibernateUtil.closeSession();
 		
-		return user;
+		Users result = (Users) query.uniqueResult();
+		return result;
 		
 	}
 

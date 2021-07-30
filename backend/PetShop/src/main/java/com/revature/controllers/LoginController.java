@@ -10,12 +10,15 @@ import javax.servlet.http.HttpSession;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.revature.models.LoginDTO;
+import com.revature.models.Users;
 import com.revature.services.LoginService;
+import com.revature.services.UserService;
 
 public class LoginController {
 	
 	ObjectMapper om = new ObjectMapper();
 	private LoginService ls = new LoginService();
+	private UserService us = new UserService();
 	
 	public void login(HttpServletRequest req, HttpServletResponse res)throws ServletException, IOException{
 		
@@ -44,11 +47,18 @@ public class LoginController {
 				
 				ses.setAttribute("LoggedIn", true);
 				
-				ls.updateToActive(lDTO.username);
+				//ls.updateToActive(lDTO.username);
 				
 				res.setStatus(200);
 				
-				res.getWriter().print("Login was successful");
+				Users user = us.getUserByUsername(lDTO.username);
+				
+				String json = om.writeValueAsString(user);
+				
+				res.getWriter().print(json);
+				//res.getWriter().print("Login was successful");
+				
+				//need to return a user object that the user/password are referring to
 				
 			} else {
 				

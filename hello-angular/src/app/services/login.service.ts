@@ -13,6 +13,6 @@ export class LoginService {
 
   loginUser(userCredentials:any): Observable<User>{
     console.log(userCredentials)
-    return this.http.post('http://localhost:8080/PetShop/login', userCredentials) as Observable<User>;
+    return this.http.post('http://localhost:8080/PetShop/login', userCredentials) as Observable<User>
   }
 }
