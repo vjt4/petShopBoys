@@ -19,7 +19,6 @@ export class SinglePetComponent implements OnInit {
   //@Input() data: any[];
 
   constructor(
-    private aps: AllPetsComponent,
     private route: ActivatedRoute,
     private petListService: petListService
   ) {
@@ -38,5 +37,15 @@ export class SinglePetComponent implements OnInit {
 
   ngOnInit(): void {
     console.log('single-pet component mounted again');
+    this.sub = this.route.params.subscribe((params) => {
+      console.log(params);
+      this.id = params['id'];
+      let pets = this.petListService.getPetList();
+      this.pet = pets.find((p) => p.id == this.id) || this.dummyPet;
+    });
+  }
+
+  ngOnDestroy() {
+    this.sub.unsubscribe();
   }
 }

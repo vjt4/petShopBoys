@@ -32,6 +32,7 @@ const routes: Routes = [
   {
     path: 'allpets',
     component: AllPetsComponent,
+    children: [{ path: 'singlepet/:id', component: SinglePetComponent }],
   },
 
   {
@@ -41,7 +42,7 @@ const routes: Routes = [
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
+  imports: [RouterModule.forRoot(routes), RouterModule.forChild(routes)],
   exports: [RouterModule],
 })
 export class AppRoutingModule {}

@@ -11,8 +11,19 @@ import samplePets from 'src/app/models/samplepets';
 export class AllPetsComponent implements OnInit {
   // @Input() pets: PetsInterface;
   pets = samplePets;
+  @Input() pet: PetsInterface;
 
-  constructor(private petsService: PetsService) {}
+  constructor(private petsService: PetsService) {
+    this.pet = {
+      id: '',
+      name: '',
+      species: '',
+      breed: '',
+      age: '',
+      size: '',
+      img: '',
+    };
+  }
 
   ngOnInit(): void {}
 }
