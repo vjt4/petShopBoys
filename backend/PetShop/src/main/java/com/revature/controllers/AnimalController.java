@@ -42,11 +42,15 @@ public class AnimalController {
 		String body = new String(sb);
 		
 		Animals aDTO = om.readValue(body, Animals.class);
+		//{"species":" ? "}
+		System.out.println(aDTO.getSpecies());
+		System.out.println("=============================");
 		
 		List<Animals> animalList = as.getAnimalsBySpecies(aDTO.getSpecies());
 		
 		String json = om.writeValueAsString(animalList);
 		
+		res.setContentType("application/json");
 		res.getWriter().print(json);
 		
 		res.setStatus(200);

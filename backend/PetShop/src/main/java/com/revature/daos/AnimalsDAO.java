@@ -51,7 +51,9 @@ public class AnimalsDAO implements AnimalsInterface {
 
 		Session ses = HibernateUtil.getSession();
 		
-		List<Animals> animalList = ses.createQuery("from Animals where species = " + species).list();
+		List<Animals> animalList = ses.createQuery("FROM Animals A where A.species =:species")
+				.setParameter("species",species)
+				.list();
 		
 		HibernateUtil.closeSession();
 		

@@ -46,12 +46,6 @@ public class MasterServlet extends HttpServlet{
 			ac.getAllAnimals(req, res);
 			break;
 		}
-		case "pet-by-species":
-		{
-			System.out.println("Get list of pets by species");
-			ac.getAnimalsBySpecies(req, res);
-			break;
-		}
 			
 		
 	}
@@ -94,6 +88,13 @@ protected void doPost(HttpServletRequest req, HttpServletResponse res) throws Se
 			//This is to populate an empty db
 			System.out.println("Populating tables");
 			populate.please();
+			break;
+		}
+		case "pet-by-species":
+		{
+			//gets pet by species : dog,cat,fish exist
+			System.out.println("Get list of pets by species");
+			ac.getAnimalsBySpecies(req, res);
 			break;
 		}
 			
