@@ -1,4 +1,4 @@
-<link
+d<link
   href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css"
   rel="stylesheet"
   id="bootstrap-css"
@@ -85,8 +85,11 @@
                   value="Login"
                   class="btn float-right login_btn"
                   (click)="login()"
+                  >
                 />
               </div>
+              <br>
+              <div class="text-danger text-center" [hidden] = "hiddenToggle">Incorrect login, please try again.</div>
             </form>
           </div>
           <div class="card-footer">
