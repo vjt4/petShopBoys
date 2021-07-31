@@ -100,6 +100,18 @@ public class UsersDAO implements UsersInterface{
 		
 	}
 
+	@Override
+	public Users getActiveUser() {
+		
+		
+		Session ses = HibernateUtil.getSession();
+		Users u = (Users) ses.createQuery("from Users where active = true").uniqueResult();
+		
+		//HibernateUtil.closeSession();
+		
+		return u;
+	}
+
 	
 	
 }

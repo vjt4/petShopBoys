@@ -17,6 +17,8 @@ public interface UsersInterface {
 	public void removeUser(Users user);
 	
 	public boolean isPresent(String username);
+
+	public Users getActiveUser();
 	
 	
 }

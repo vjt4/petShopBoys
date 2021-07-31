@@ -29,5 +29,10 @@ public class UserService {
 	public void removeUser(Users user) {
 		uDAO.removeUser(user);
 	}
+
+	public Users getActiveUser() {
+		Users u = uDAO.getActiveUser();
+		return u;
+	}
 	
 }

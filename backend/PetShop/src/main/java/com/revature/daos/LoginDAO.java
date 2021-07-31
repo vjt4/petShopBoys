@@ -7,7 +7,7 @@ import com.revature.models.Users;
 import com.revature.utils.HibernateUtil;
 
 public class LoginDAO {
-	private UsersDAO ud = new UsersDAO();
+	private UsersDAO uDAO = new UsersDAO();
 	
 	public Users getUser(String username , String password) {
 		Session ses = HibernateUtil.getSession();
@@ -29,7 +29,7 @@ public class LoginDAO {
 	public void updateToActive(String username) {
 		Session ses = HibernateUtil.getSession();
 
-		Users u = ud.getUserByUsername(username);
+		Users u = uDAO.getUserByUsername(username);
 		Transaction tr = ses.beginTransaction();
 		u.setActive(true);
 
@@ -43,7 +43,7 @@ public class LoginDAO {
 	public void updateToInactive(String username) {
 		Session ses = HibernateUtil.getSession();
 
-		Users u = ud.getUserByUsername(username);
+		Users u = uDAO.getUserByUsername(username);
 		Transaction tr = ses.beginTransaction();
 		u.setActive(false);
 

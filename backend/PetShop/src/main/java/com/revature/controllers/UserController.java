@@ -65,5 +65,12 @@ public class UserController {
 		res.setStatus(200);
 		
 	}
+
+	public void getActiveUser(HttpServletRequest req, HttpServletResponse res) {
+		
+		Users u = us.getActiveUser();
+		System.out.println(u);
+		
+	}
 	
 }

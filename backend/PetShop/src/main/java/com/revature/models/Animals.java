@@ -227,5 +227,13 @@ public class Animals {
 	public void setPicture(String picture) {
 		this.picture = picture;
 	}
+	
+	public Cart getCartId() {
+		return cartId;
+	}
+
+	public void setCartId(Cart cartId) {
+		this.cartId = cartId;
+	}
 
 }

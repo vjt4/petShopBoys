@@ -30,4 +30,9 @@ public class AnimalService {
 		aDAO.removeAnimal(animal);
 	}
 
+	public void updateAnimalIntoCart(int animalId) {
+		aDAO.updateAnimalIntoCart(animalId);
+		
+	}
+
 }

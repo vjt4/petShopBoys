@@ -68,7 +68,7 @@ protected void doPost(HttpServletRequest req, HttpServletResponse res) throws Se
 		case "create-account":
 		{
 			//create user works
-			System.out.println("Create Account");
+			System.out.println(URI);
 			uc.createAccount(req, res);
 			break;
 		}
@@ -76,23 +76,38 @@ protected void doPost(HttpServletRequest req, HttpServletResponse res) throws Se
 		case "login":
 		{
 			//login works
-			System.out.println("Login to account");
+			System.out.println(URI);
 			lc.login(req, res);
 			break;
 		}
 		case "logout":
 		{
 			//
-			System.out.println("Login to account");
+			System.out.println(URI);
 			lc.logout(req, res);
 			break;
 		}
 			
 		case "create-cart":
 		{
-			//
-			System.out.println("in cart");
+			//Creates new cart, receives cart object for total
+			//Then grabs active user and updates his cart fk to new cart id pk
+			System.out.println(URI);
 			cc.newCart(req, res);
+			break;
+		}
+		case "add-to-cart":
+		{
+			//takes in animal objects adds their total cost and updates the cart total$
+			System.out.println(URI);
+			cc.addToCart(req, res);
+			break;
+		}
+		case "checkout":
+		{
+			//deletes cart, removes animal from database
+			System.out.println(URI);
+			cc.checkout(req, res);
 			break;
 		}
 		case "populate":
