@@ -2,13 +2,13 @@ import { Binary } from "@angular/compiler";
 
 export class Pets {
     constructor(
-        private name:String,
-        private species:String,
-        private breed:String,
-        private age:String,
-        private gender:String,
-        private size:String,
+        private name:string,
+        private species:string,
+        private breed:string,
+        private age:string,
+        private gender:string,
+        private size:string,
         private price:number,
-        private picture:String,
+        private picture:string,
     ){}
 }

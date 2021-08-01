@@ -10,8 +10,8 @@ export class PetsService {
 
   constructor(private http:HttpClient){} 
 
-  getPetsFromBackend(id:number):Observable<Pets>{
-    return this.http.get("http://localhost:8080/PetShop/Animals/" + id + "/") as Observable<Pets>
+  getPets(id:number):Observable<Pets>{
+    return this.http.get("http://localhost:8080/PetShop/pet") as Observable<Pets>
   }
 
 }

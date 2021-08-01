@@ -1,9 +1,9 @@
 <div class="grid-container">
 
-  <a *ngFor="let pet of petArray" class="pet-card" routerLinkActive="active" routerLink="../singlepet">
+  <a *ngFor="let pet of pet" class="pet-card" routerLinkActive="active" routerLink="../singlepet">
 
         <h2>{{pet.name}}</h2>
-        <img style="width:200px" src="{{pet.img}}"/>
+        <img style="width:200px" src="{{pet.picture}}"/>
         <p>Species: {{pet.species}}</p>
         <p>Age: {{pet.age}}</p>
         <p>Size: {{pet.size}}</p>
