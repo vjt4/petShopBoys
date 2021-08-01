@@ -16,6 +16,7 @@ import { HomeComponent } from './components/home/home.component';
 import { SinglePetComponent } from './components/single-pet/single-pet.component';
 import { AllPetsComponent } from './components/all-pets/all-pets.component';
 import { CartComponent } from './components/cart/cart.component';
+import { PetsComponent } from './components/pets/pets.component';
 
 @NgModule({
   declarations: [
@@ -26,6 +27,7 @@ import { CartComponent } from './components/cart/cart.component';
     NavbarComponent,
     AllPetsComponent,
     CartComponent,
+    PetsComponent,
     //declare components here
   ],
   imports: [
@@ -35,12 +37,10 @@ import { CartComponent } from './components/cart/cart.component';
     AppRoutingModule,
     SharedBootstrapModule,
     BrowserAnimationsModule,
-    HttpClientModule
+    HttpClientModule,
   ],
   exports: [],
-  providers: [
-    AllPetsComponent
-  ],
+  providers: [AllPetsComponent],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

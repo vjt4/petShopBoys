@@ -53,12 +53,16 @@ public class UsersDAO implements UsersInterface{
 		Session ses = HibernateUtil.getSession();
 		
 		//need a query here instead of using ses.get()
-		Query query = ses.createQuery("from Users where username = :username").setParameter("username", username);
+		//Query query = ses.createQuery("from Users where username = :username").setParameter("username", username);
+		Users u =  (Users) ses.createQuery("from Users where username = :username")
+				.setParameter("username", username).uniqueResult();
 		
-		HibernateUtil.closeSession();
+//		HibernateUtil.closeSession();
 		
-		Users result = (Users) query.uniqueResult();
-		return result;
+//		Users result = (Users) query.uniqueResult();
+//		return result;
+		
+		return u;
 		
 	}
 
@@ -94,6 +98,18 @@ public class UsersDAO implements UsersInterface{
 		
 		return isPresent;
 		
+	}
+
+	@Override
+	public Users getActiveUser() {
+		
+		
+		Session ses = HibernateUtil.getSession();
+		Users u = (Users) ses.createQuery("from Users where active = true").uniqueResult();
+		
+		//HibernateUtil.closeSession();
+		
+		return u;
 	}
 
 	

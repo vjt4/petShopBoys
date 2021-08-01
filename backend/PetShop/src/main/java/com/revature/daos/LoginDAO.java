@@ -1,11 +1,13 @@
 package com.revature.daos;
 
 import org.hibernate.Session;
+import org.hibernate.Transaction;
 
 import com.revature.models.Users;
 import com.revature.utils.HibernateUtil;
 
 public class LoginDAO {
+	private UsersDAO uDAO = new UsersDAO();
 	
 	public Users getUser(String username , String password) {
 		Session ses = HibernateUtil.getSession();
@@ -24,14 +26,33 @@ public class LoginDAO {
 			return null;
 	}
 	
-//	public void updateToActive(String username) {
-//		Session ses = HibernateUtil.getSession();
-//		Users user = (Users) ses.createQuery("Update Users U set U.actuve = true WHERE U.username = :username")
-//				.setParameter("username", username);
-//		System.out.println("User: " + username + " is now active !");
-//		
-//		HibernateUtil.closeSession();
-//	}
+	public void updateToActive(String username) {
+		Session ses = HibernateUtil.getSession();
+
+		Users u = uDAO.getUserByUsername(username);
+		Transaction tr = ses.beginTransaction();
+		u.setActive(true);
+
+		System.out.println("User: " + username + " is now active !");
+		
+		tr.commit();
+		
+		HibernateUtil.closeSession();
+	}
+	
+	public void updateToInactive(String username) {
+		Session ses = HibernateUtil.getSession();
+
+		Users u = uDAO.getUserByUsername(username);
+		Transaction tr = ses.beginTransaction();
+		u.setActive(false);
+
+		System.out.println("User: " + username + " is now active !");
+		
+		tr.commit();
+		
+		HibernateUtil.closeSession();
+	}
 	
 
 }

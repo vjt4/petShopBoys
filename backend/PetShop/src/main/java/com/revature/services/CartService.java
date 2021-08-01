@@ -35,5 +35,20 @@ public class CartService {
 	public void showTotal(double total) {
 		cDAO.showTotal(total);
 	}
+
+	public void updateUser(Cart newCart) {
+		cDAO.updateUser(newCart);
+		
+	}
+
+	public void updateCartTotal(double totalCost) {
+		cDAO.updateCartTotal(totalCost);
+		
+	}
+
+	public void checkout() {
+		cDAO.checkout();
+		
+	}
 	
 }

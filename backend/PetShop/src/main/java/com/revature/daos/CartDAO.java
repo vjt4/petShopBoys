@@ -1,16 +1,21 @@
 package com.revature.daos;
 
-import org.hibernate.Session;
+import java.util.List;
 
+import org.hibernate.Session;
+import org.hibernate.Transaction;
+
+import org.hibernate.Query;
 import com.revature.models.Animals;
 import com.revature.models.Cart;
+import com.revature.models.Users;
 import com.revature.utils.HibernateUtil;
 
 public class CartDAO implements CartInterface{
 
-	AnimalsDAO aDAO = new AnimalsDAO();
-	CartDAO cDAO = new CartDAO();
-	
+	private AnimalsDAO aDAO = new AnimalsDAO();
+	private UsersDAO uDAO = new UsersDAO();
+		
 	@Override
 	public void newCart(Cart newCart) {
 
@@ -29,30 +34,12 @@ public class CartDAO implements CartInterface{
 		
 		Cart cart = ses.get(Cart.class, cart_id);
 		
-		HibernateUtil.closeSession();
+		//HibernateUtil.closeSession();
 		
 		return cart;
 		
 	}
 	
-	@Override
-	public void addToCart(int animal_id) {
-
-//		Session ses = HibernateUtil.getSession();
-//		
-//		Animals animal = aDAO.getAnimalById(animal_id);
-//		
-//		if(animal != null) {
-//			
-//		}
-		
-	}
-
-	@Override
-	public void removeFromCart(int animal_id) {
-		// TODO Auto-generated method stub
-		
-	}
 	
 	@Override
 	public void updateCart(Cart cart) {
@@ -77,8 +64,111 @@ public class CartDAO implements CartInterface{
 	}
 
 	@Override
+	public void addToCart(int animal_id) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void removeFromCart(int animal_id) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
 	public void showTotal(double total) {
 		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void updateUser(Cart id) {
+		// Update the user fk with the the cart id pk
+		
+		
+		Session ses = HibernateUtil.getSession();
+		
+		Users x = uDAO.getActiveUser();
+		
+		Transaction tr = ses.beginTransaction();
+		
+		x.setCartId(id);
+		tr.commit();
+		HibernateUtil.closeSession();
+		System.out.println("Updated: "  + x.getUsername() + "'s cart");
+		
+	}
+
+	@Override
+	public void updateCartTotal(double totalCost) {
+		// TODO Auto-generated method stub
+		
+		Users x = uDAO.getActiveUser();
+		
+		
+		Cart c = getCartById(x.getCartId().getCartId());
+		
+		Session ses = HibernateUtil.getSession();
+		Transaction tr = ses.beginTransaction();
+		c.setTotal(totalCost);
+		tr.commit();
+		HibernateUtil.closeSession();
+		System.out.println("Updated your cart total to: " + totalCost);
+		
+		
+	}
+
+	@Override
+	public void checkout() {
+		
+		//getting cart by the active user
+//		Users x = uDAO.getActiveUser();
+//		Cart c = getCartById(x.getCartId().getCartId());
+//		List<Animals> aList = aDAO.getAnimalByCartId(c.getCartId());
+//		
+//		
+//		
+//		Animals temp = aList.get(0);
+//		Cart aCart = new Cart();
+//		
+//		Session ses = HibernateUtil.getSession();
+//		Transaction tr = ses.beginTransaction();
+//		//aCart.setCartId(c.getCartId());
+//		//temp.setAnimalId(8);
+//		ses.delete(c);
+//		//ses.delete(temp);
+//		tr.commit();
+//		HibernateUtil.closeSession();
+		
+//		for(Animals a : aList) {
+//			System.out.println(a.toString());
+//			
+//			Session ses = HibernateUtil.getSession();
+//			Animals temp = new Animals();
+//			temp.setAnimalId(a.getAnimalId());
+//			ses.delete(temp);
+//			HibernateUtil.closeSession();
+//			
+//		}
+
+		
+//		Session ses = HibernateUtil.getSession();
+//		Transaction tr = ses.beginTransaction();
+//		
+//		Query query = ses.createQuery("");
+		
+		
+		
+		
+		
+//		Transaction tr = ses.beginTransaction();
+		
+		
+		
+		
+//		tr.commit();
+//		HibernateUtil.closeSession();
+		System.out.println("Deleted cart and animals");
 		
 	}
 

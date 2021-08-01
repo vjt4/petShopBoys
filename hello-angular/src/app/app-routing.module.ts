@@ -6,6 +6,7 @@ import { LoginComponent } from './components/login/login.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { SinglePetComponent } from './components/single-pet/single-pet.component';
 import { CartComponent } from './components/cart/cart.component';
+import { PetsComponent } from './components/pets/pets.component';
 
 const routes: Routes = [
   {
@@ -31,8 +32,12 @@ const routes: Routes = [
     component: HomeComponent,
   },
   {
-    path: 'allpets',
-    component: AllPetsComponent,
+    path: 'pets',
+    component: PetsComponent,
+    children: [
+      { path: 'singlepet/:id', component: SinglePetComponent },
+      { path: 'allpets', component: AllPetsComponent },
+    ],
   },
 
   {
@@ -46,7 +51,7 @@ const routes: Routes = [
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
+  imports: [RouterModule.forRoot(routes), RouterModule.forChild(routes)],
   exports: [RouterModule],
 })
 export class AppRoutingModule {}

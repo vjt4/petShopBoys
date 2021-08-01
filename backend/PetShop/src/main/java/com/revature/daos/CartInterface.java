@@ -17,5 +17,11 @@ public interface CartInterface {
 	public void purchase(Cart cart);
 	
 	public void showTotal(double total);
+
+	public void updateUser(Cart cartId);
+
+	public void updateCartTotal(double totalCost);
+
+	public void checkout();
 	
 }
