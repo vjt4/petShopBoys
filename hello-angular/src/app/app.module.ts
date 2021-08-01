@@ -15,6 +15,7 @@ import { LoginComponent } from './components/login/login.component';
 import { HomeComponent } from './components/home/home.component';
 import { SinglePetComponent } from './components/single-pet/single-pet.component';
 import { AllPetsComponent } from './components/all-pets/all-pets.component';
+import { CartComponent } from './components/cart/cart.component';
 import { PetsComponent } from './components/pets/pets.component';
 
 @NgModule({
@@ -25,6 +26,7 @@ import { PetsComponent } from './components/pets/pets.component';
     SinglePetComponent,
     NavbarComponent,
     AllPetsComponent,
+    CartComponent,
     PetsComponent,
     //declare components here
   ],

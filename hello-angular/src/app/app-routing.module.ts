@@ -5,7 +5,9 @@ import { HomeComponent } from './components/home/home.component';
 import { LoginComponent } from './components/login/login.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { SinglePetComponent } from './components/single-pet/single-pet.component';
+import { CartComponent } from './components/cart/cart.component';
 import { PetsComponent } from './components/pets/pets.component';
+
 const routes: Routes = [
   {
     path: '',
@@ -41,6 +43,10 @@ const routes: Routes = [
   {
     path: 'singlepet',
     component: SinglePetComponent,
+  },
+  {
+    path: 'cart',
+    component: CartComponent,
   },
 ];
 

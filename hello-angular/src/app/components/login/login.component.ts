@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { LoginService } from 'src/app/services/login.service';
 import { User } from 'src/app/models/user';
 import { Userlogin } from 'src/app/models/userlogin';
-
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -14,9 +14,9 @@ export class LoginComponent implements OnInit {
   public username:string = "";
   public password:string = "";
   public userLogin:any = null;
-  public loggedIn:boolean = false;
+  hiddenToggle:boolean = true;
 
-  constructor(private LoginService: LoginService) {}
+  constructor(private LoginService: LoginService, private router: Router) {}
 
 
   ngOnInit(): void {}
@@ -33,12 +33,13 @@ export class LoginComponent implements OnInit {
         (data:Userlogin) => {
           this.userLogin = data;
           console.log(this.userLogin);
-          this.loggedIn = true;
+          this.router.navigate(['allpets']);
         },
 
         () => {
           this.userLogin = null;
           console.log("couldn't login")
+          this.hiddenToggle = false;
         }
       )
 
