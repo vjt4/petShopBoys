@@ -33,7 +33,7 @@ export class LoginComponent implements OnInit {
         (data:Userlogin) => {
           this.userLogin = data;
           console.log(this.userLogin);
-          this.router.navigate(['allpets']);
+          this.router.navigate(['pets/allpets']);
         },
 
         () => {
