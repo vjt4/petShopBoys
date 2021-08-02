@@ -1,17 +1,18 @@
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
+import { Observable, observable } from 'rxjs';
 import { Pets } from '../models/pets';
 
 @Injectable({
   providedIn: 'root',
 })
-export class PetsService {
+export class SinglePetService {
   constructor(private http: HttpClient) {}
 
-  getPets(id: number): Observable<Pets> {
-    return this.http.get(
-      'http://localhost:8080/PetShop/pet-by-id'
+  getPet(id: number): Observable<Pets> {
+    return this.http.post(
+      'http://localhost:8080/PetShop/pet-by-id',
+      id
     ) as Observable<Pets>;
   }
 }

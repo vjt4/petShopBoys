@@ -4,14 +4,14 @@ import { HttpClient } from '@angular/common/http';
 import { Pets } from '../models/pets';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class PetsService {
+  constructor(private http: HttpClient) {}
 
-  constructor(private http:HttpClient){} 
-
-  getPets(id:number):Observable<Pets>{
-    return this.http.get("http://localhost:8080/PetShop/pet") as Observable<Pets>
+  getPets(id: number): Observable<Pets> {
+    return this.http.get(
+      'http://localhost:8080/PetShop/pet'
+    ) as Observable<Pets>;
   }
-
 }

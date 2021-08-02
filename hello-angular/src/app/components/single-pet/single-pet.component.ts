@@ -3,6 +3,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { AllPetsComponent } from '../all-pets/all-pets.component';
 import { PetsInterface } from 'src/app/models/petsInterface';
 import { petListService } from 'src/app/services/petList.service';
+import { Pets } from 'src/app/models/pets';
 
 @Component({
   selector: 'app-single-pet',
@@ -10,40 +11,40 @@ import { petListService } from 'src/app/services/petList.service';
   styleUrls: ['./single-pet.component.css'],
 })
 export class SinglePetComponent implements OnInit {
-  animalId: number;
-  pet: PetsInterface;
-  dummyPet: PetsInterface;
-  sub: any;
-  //let pets: Array<any> = AllPetsComponent.petArray;
+  public animalId: number = 0;
+  public name: string = '';
+  public species: string = '';
+  public breed: string = '';
+  public age: string = '';
+  public gender: string = '';
+  public size: string = '';
+  public price: number = 0;
+  public picture: string = '';
 
   //@Input() data: any[];
 
   constructor(
     private route: ActivatedRoute,
-    private petListService: petListService
-  ) {
-    this.animalId = 0;
-    this.pet = {
-      animalId: 1,
-      name: '',
-      species: '',
-      breed: '',
-      age: '',
-      gender: '',
-      size: '',
-      price: 1,
-      picture: '',
-    };
-    this.dummyPet = this.pet;
-  }
+    private petListService: petListService,
+    private router: Router
+  ) {}
 
-  ngOnInit(): void {
-    console.log('single-pet component mounted again');
-    this.sub = this.route.params.subscribe((params) => {
-      console.log(params);
-      this.animalId = params['id'];
-      let pets = this.petListService.getPetList();
-      this.pet = pets.find((p) => p.animalId == this.animalId) || this.dummyPet;
+  ngOnInit(): void {}
+
+  getPet(): void {
+    let id: Pets = {
+      animalId: this.animalId,
+      //name: this.name,
+      //species: this.species,
+      //breed: this.breed,
+      //age: this.age,
+      // gender: this.gender,
+      // size: this.size,
+      // price: this.price,
+      // picture: this.picture,
+    };
+    this.petListService.getPet(id).subscribe((data: Pets) => {
+      this.pet = data;
     });
   }
 
