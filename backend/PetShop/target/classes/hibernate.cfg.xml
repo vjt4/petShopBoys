@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?> <!-- This is our XMl version -->
+
+<!-- This is our doctype declaration -->
+<!DOCTYPE hibernate-configuration PUBLIC
+        "-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+        
+        <hibernate-configuration>
+        
+        	<session-factory>
+        	
+        	<!-- JDBC credentials -->
+        	<property name="hibernate.connection.username">postgres</property>
+        	<property name="hibernate.connection.password">254808</property>
+        	<property name="hibernate.connection.url">jdbc:postgresql://localhost:5432/postgres?currentSchema=p2</property>
+        	<property name="hibernate.connection.driver_class">org.postgresql.Driver</property>
+        	
+        	<!-- Hibernate Properties -->
+        	<property name="hibernate.dialect">org.hibernate.dialect.PostgreSQLDialect</property>
+        	<property name="hibernate.default_schema">p2</property>
+        	
+        	<!-- Hibernate Console Output --> <!-- These will let us see our sql in the console -->
+        	<property name="hibernate.show_sql">true</property>
+        	<property name="hibernate.format_sql">true</property>
+        	
+        	<!-- DDL -->
+        	<property name="hibernate.hbm2ddl.auto">update</property>
+        	<!-- remember, create drops your tables at runtime, update will simply update them -->
+        	
+        	<!-- We'll map our classes here -->
+        	<mapping class="com.revature.models.Cart"/>
+        	<mapping class="com.revature.models.Animals"/>
+        	<mapping class="com.revature.models.Users"/>
+        	
+        	</session-factory>
+        
+        
+        
+        </hibernate-configuration>
