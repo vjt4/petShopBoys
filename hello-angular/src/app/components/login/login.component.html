@@ -8,7 +8,7 @@
       -webkit-background-size: cover;
       -moz-background-size: cover;
       -o-background-size: cover;
-      background-size:cover;
+      background-size: cover;
       width: 100%;
       height: 100%;
       margin-left: 0;
@@ -16,7 +16,7 @@
   }
 
   .card-body {
-    width: 500px;
+    width: 400px;
     margin-left: auto;
     margin-right: auto;
   }
@@ -43,6 +43,11 @@
       -webkit-text-stroke-color: black;
   }
 
+  #link {
+    cursor: pointer;
+    color: blue;
+  }
+
 </style>
 
 <div class="fullcontainer">
@@ -55,7 +60,6 @@
   <div class="card-container" id="fullcontainer">
       <br>
       <div>
-          <h4 class="text-white text-center">Please enter your login credentials</h4>
           <br>
           <div class="card-body">
             <form>
@@ -90,8 +94,7 @@
                   type="submit"
                   value="Login"
                   class="btn float-right login_btn"
-                  (click)="login()"
-                  >
+                  (click)="login()">
               </div>
               <br>
               <div class="text-danger text-center" [hidden] = "hiddenToggle">Incorrect login, please try again.</div>
@@ -99,7 +102,47 @@
           </div>
           <div class="footer">
             <div class="d-flex justify-content-center links">
-              Don't have an account?<a href="#">Sign Up</a>
+              Don't have an account?<a id="link" (click)="staticModal.show()">Sign Up</a>
+            </div>
+            <div
+              class="modal fade"
+              bsModal
+              #staticModal="bs-modal"
+              tabindex="-1"
+              role="dialog"
+              aria-labelledby="mySmallModalLabel"
+              aria-hidden="true">
+              <div class="modal-dialog modal-sm">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h4 class="modal-title pull-left">Sign up</h4>
+                    <button
+                      type="button"
+                      keyboard="true"
+                      class="close pull-right"
+                      aria-label="Close"
+                      (click)="staticModal.hide()">
+                      <span aria-hidden="true">&times;</span>
+                    </button>
+                  </div>
+                  <div class="modal-body">
+                    <div>
+                      <label for="text">Email:</label><br>
+                      <input type="email" id="email" name="email" [(ngModel)] = "email"><br>
+                      <label for="text">Username:</label><br>
+                      <input type="username" id="username" name="username" [(ngModel)] = "username"><br>
+                      <label for="password">Password:</label><br>
+                      <input type="password" id="password" name="password" [(ngModel)] = "password"><br>
+                      <label for="fname">First name:</label><br>
+                      <input type="text" id="fname" name="fname" [(ngModel)] = "first_name"><br>
+                      <label for="lname">Last name:</label><br>
+                      <input type="text" id="lname" name="lname" [(ngModel)] = "last_name"><br><br>
+                      <input type="submit" value="Submit" (click)="signUp()">
+                      <div class="text-danger text-center" [hidden] = "hiddenToggle">Coudln't sign up, please try again.</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
       </div>
