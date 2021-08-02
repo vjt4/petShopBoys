@@ -1,9 +1,11 @@
 export interface PetsInterface {
-  id: string;
-  name: String;
-  species: String;
-  breed: String;
-  age: String;
-  size: String;
-  img: String;
+  animalId: number;
+  name: string;
+  species: string;
+  breed: string;
+  age: string;
+  gender: string;
+  size: string;
+  price: number;
+  picture: string;
 }

@@ -70,8 +70,9 @@ public class AnimalController {
 		String body = new String(sb);
 		
 		Animals aDTO = om.readValue(body, Animals.class);
-		
-		Animals animalList = (Animals) as.getAnimalsById(aDTO.getAnimalId());
+		//System.out.println(aDTO.toString());
+		Animals animalList = (Animals) as.getAnimalById(aDTO.getAnimalId());
+		//System.out.println(animalList.toString());
 		String json = om.writeValueAsString(animalList);
 		
 		res.setContentType("application/json");

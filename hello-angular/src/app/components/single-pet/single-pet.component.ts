@@ -10,7 +10,7 @@ import { petListService } from 'src/app/services/petList.service';
   styleUrls: ['./single-pet.component.css'],
 })
 export class SinglePetComponent implements OnInit {
-  id: string;
+  animalId: number;
   pet: PetsInterface;
   dummyPet: PetsInterface;
   sub: any;
@@ -22,15 +22,17 @@ export class SinglePetComponent implements OnInit {
     private route: ActivatedRoute,
     private petListService: petListService
   ) {
-    this.id = '';
+    this.animalId = 0;
     this.pet = {
-      id: '',
+      animalId: 1,
       name: '',
       species: '',
       breed: '',
       age: '',
+      gender: '',
       size: '',
-      img: '',
+      price: 1,
+      picture: '',
     };
     this.dummyPet = this.pet;
   }
@@ -39,9 +41,9 @@ export class SinglePetComponent implements OnInit {
     console.log('single-pet component mounted again');
     this.sub = this.route.params.subscribe((params) => {
       console.log(params);
-      this.id = params['id'];
+      this.animalId = params['id'];
       let pets = this.petListService.getPetList();
-      this.pet = pets.find((p) => p.id == this.id) || this.dummyPet;
+      this.pet = pets.find((p) => p.animalId == this.animalId) || this.dummyPet;
     });
   }
 

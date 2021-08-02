@@ -1,20 +1,17 @@
 import { Injectable } from '@angular/core';
-import samplePets from '../models/samplePets';
-import { PetsInterface } from '../models/petsInterface';
-import { JsonpClientBackend } from '@angular/common/http';
+import { Observable } from 'rxjs';
+import { HttpClient } from '@angular/common/http';
+import { Pets } from '../models/pets';
 
 @Injectable({
   providedIn: 'root',
 })
-export class petListService {
-  constructor() {}
+export class PetsService {
+  constructor(private http: HttpClient) {}
 
-  getPetList(): PetsInterface[] {
-    let obj = localStorage.getItem('pets') || '';
-    if (obj == '') {
-      console.log('Setting up pets for 1st time');
-      localStorage.setItem('pets', JSON.stringify(samplePets));
-      return samplePets;
-    } else return JSON.parse(obj);
+  getPets(id: number): Observable<Pets> {
+    return this.http.get(
+      'http://localhost:8080/PetShop/pet-by-id'
+    ) as Observable<Pets>;
   }
 }
