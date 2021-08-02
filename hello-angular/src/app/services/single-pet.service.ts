@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable, observable } from 'rxjs';
-import { Pets } from '../models/pets';
+import { singlePet } from '../models/singlePet';
 
 @Injectable({
   providedIn: 'root',
@@ -9,10 +9,10 @@ import { Pets } from '../models/pets';
 export class SinglePetService {
   constructor(private http: HttpClient) {}
 
-  getPet(id: number): Observable<Pets> {
+  getPet(id: any): Observable<singlePet> {
     return this.http.post(
       'http://localhost:8080/PetShop/pet-by-id',
       id
-    ) as Observable<Pets>;
+    ) as Observable<singlePet>;
   }
 }

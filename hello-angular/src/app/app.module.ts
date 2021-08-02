@@ -17,6 +17,7 @@ import { SinglePetComponent } from './components/single-pet/single-pet.component
 import { AllPetsComponent } from './components/all-pets/all-pets.component';
 import { CartComponent } from './components/cart/cart.component';
 import { PetsComponent } from './components/pets/pets.component';
+import { PetComponent } from './models/pet/pet.component';
 
 @NgModule({
   declarations: [
@@ -28,6 +29,7 @@ import { PetsComponent } from './components/pets/pets.component';
     AllPetsComponent,
     CartComponent,
     PetsComponent,
+    PetComponent,
     //declare components here
   ],
   imports: [
