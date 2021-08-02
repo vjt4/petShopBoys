@@ -56,5 +56,29 @@ public class AnimalController {
 		res.setStatus(200);
 		
 	}
+
+	public void getAnimalsById(HttpServletRequest req, HttpServletResponse res) throws IOException {
+		BufferedReader reader = req.getReader();
+		StringBuilder sb = new StringBuilder();
+		String line = reader.readLine();
+		
+		while(line != null) {
+			sb.append(line);
+			line = reader.readLine();
+		}
+		
+		String body = new String(sb);
+		
+		Animals aDTO = om.readValue(body, Animals.class);
+		
+		Animals animalList = (Animals) as.getAnimalsById(aDTO.getAnimalId());
+		String json = om.writeValueAsString(animalList);
+		
+		res.setContentType("application/json");
+		res.getWriter().print(json);
+		
+		res.setStatus(200);
+		
+	}
 	
 }

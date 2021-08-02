@@ -46,7 +46,7 @@ public class AnimalsDAO implements AnimalsInterface {
 		
 		Animals animal = ses.get(Animals.class, animal_id);
 		
-		//HibernateUtil.closeSession();
+		HibernateUtil.closeSession();
 		
 		return animal;
 		

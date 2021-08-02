@@ -35,4 +35,9 @@ public class AnimalService {
 		
 	}
 
+	public List<Animals> getAnimalsById(int animalId) {
+		aDAO.getAnimalById(animalId);
+		return null;
+	}
+
 }
