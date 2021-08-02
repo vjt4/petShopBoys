@@ -2,7 +2,7 @@ import { Component, Input, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { AllPetsComponent } from '../all-pets/all-pets.component';
 import { PetsInterface } from 'src/app/models/petsInterface';
-import { petListService } from 'src/app/services/petList.service';
+import { SinglePetService } from 'src/app/services/single-pet.service';
 import { Pets } from 'src/app/models/pets';
 
 @Component({
@@ -25,7 +25,7 @@ export class SinglePetComponent implements OnInit {
 
   constructor(
     private route: ActivatedRoute,
-    private petListService: petListService,
+    private SinglePetServicevice: SinglePetService,
     private router: Router
   ) {}
 
@@ -43,8 +43,8 @@ export class SinglePetComponent implements OnInit {
       // price: this.price,
       // picture: this.picture,
     };
-    this.petListService.getPet(id).subscribe((data: Pets) => {
-      this.pet = data;
+    this.SinglePetServicevice.getPet(id).subscribe((data: Pets) => {
+      this.animalId = data;
     });
   }
 
