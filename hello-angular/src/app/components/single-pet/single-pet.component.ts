@@ -11,7 +11,7 @@ import { singlePet } from 'src/app/models/singlePet';
   styleUrls: ['./single-pet.component.css'],
 })
 export class SinglePetComponent implements OnInit {
-  public animalId: string = '';
+  public animalId: number = 0;
   public id: any = null;
 
   //@Input() data: any[];
@@ -28,8 +28,13 @@ export class SinglePetComponent implements OnInit {
     let pet: singlePet = {
       animalId: this.animalId,
     };
-    this.SinglePetService.getPet(pet).subscribe((data: singlePet) => {
-      this.id = data;
-    });
+    this.SinglePetService.getPet(pet).subscribe(
+      (data: singlePet) => {
+        this.id = data;
+      },
+      () => {
+        this.animalId = 1;
+      }
+    );
   }
 }
