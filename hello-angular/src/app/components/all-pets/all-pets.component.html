@@ -1,12 +1,50 @@
+<style>
+  
+  @import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
+  
+.grid-container {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  background-image: url("https://previews.123rf.com/images/spicytruffel/spicytruffel1910/spicytruffel191000157/132113255-paw-foot-trail-cat-and-dog-walk-track-silhouette-wild-animal-and-pet-paw-print-texture-vector-image-.jpg");
+  background-position:100%
+}
+
+.pet-card {
+  width: 200px;
+  height: 300px;
+  border: lightgray 1px solid;
+  border-radius: 50px;
+  text-align: center;
+  margin: 20px;
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.7);
+  transition: 0.3s;
+  background-color: #FFCB77;
+  font-family: 'Montserrat', sans-serif;
+  color: #FE6D73;
+  -webkit-text-stroke-width: .2px;
+  -webkit-text-stroke-color: black;
+}
+
+.pet-card:hover {
+  box-shadow: 0 10px 18px 0 rgba(0,0,0,0.7);
+}
+.img{
+  width:  200px;
+  height: 200px;
+  object-fit: cover;
+}
+
+</style>
+
 <div class="grid-container">
 
   <a *ngFor="let pet of pet" class="pet-card" routerLinkActive="active" routerLink="../singlepet">
 
-        <h2>{{pet.name}}</h2>
-        <img style="width:200px" src="{{pet.picture}}"/>
-        <p>Species: {{pet.species}}</p>
-        <p>Age: {{pet.age}}</p>
-        <p>Size: {{pet.size}}</p>
+        <h2>{{pet.name |titlecase }}</h2>
+        <img class="img" src="{{pet.picture}}"/>
+        <span>Species: {{pet.species |titlecase}} ‣ </span> <span>Age: {{pet.age}}</span> <br> <span>Size: {{pet.size|titlecase}}</span>
         
     </a>
 </div>
