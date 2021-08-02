@@ -45,9 +45,9 @@ h2 {
 
 <div class="grid-container">
 
-  <a *ngFor="let pet of pet" class="pet-card" routerLinkActive="active" routerLink="../singlepet">
+  <a *ngFor="let pet of pet" class="pet-card" routerLinkActive="active" routerLink="../singlepet/{{pet.animalId}}">
 
-        <h2>{{pet.name |titlecase }}</h2>
+        <h2>{{pet.name |titlecase }}</h2> 
         <img class="img" src="{{pet.picture}}"/>
         <span>Species: {{pet.species |titlecase}} ‣ </span> <span>Age: {{pet.age}}</span> <br> <span>Size: {{pet.size|titlecase}}</span>
         

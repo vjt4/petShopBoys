@@ -14,13 +14,13 @@ export class LoginComponent implements OnInit {
 
   public username:string = "";
   public password:string = "";
-  public active:boolean = true;
-  public first_name:string = "";
-  public last_name:string = "";
+  public firstName:string = "";
+  public lastName:string = "";
   public email:string = "";
   public isAdmin:boolean = false;
   public userLogin:any = null;
   public newUser:any = null;
+  public loggedIn:boolean = false;
   hiddenToggle:boolean = true;
 
   constructor(private LoginService: LoginService, private SignupService: SignupService, private router: Router) {}
@@ -40,6 +40,7 @@ export class LoginComponent implements OnInit {
         (data:Userlogin) => {
           this.userLogin = data;
           console.log(this.userLogin);
+          this.loggedIn = true;
           this.router.navigate(['pets/allpets']);
         },
 
@@ -57,9 +58,8 @@ export class LoginComponent implements OnInit {
 
       username: this.username,
       password: this.password,
-      active: this.active,
-      first_name: this.first_name,
-      last_name: this.last_name,
+      firstName: this.firstName,
+      lastName: this.lastName,
       email: this.email,
       isAdmin: this.isAdmin
     }
@@ -69,6 +69,7 @@ export class LoginComponent implements OnInit {
       (data:User) => {
         this.newUser = data;
         console.log(this.newUser);
+        this.router.navigate(['login']);
       },
 
       () => {

@@ -88,7 +88,7 @@
                   placeholder="password"
                   [(ngModel)] = "password"
                 />
-              </div>
+              </div><br>
               <div class="form-group">
                 <input
                   type="submit"
@@ -134,9 +134,9 @@
                       <label for="password">Password:</label><br>
                       <input type="password" id="password" name="password" [(ngModel)] = "password"><br>
                       <label for="fname">First name:</label><br>
-                      <input type="text" id="fname" name="fname" [(ngModel)] = "first_name"><br>
+                      <input type="text" id="fname" name="fname" [(ngModel)] = "firstName"><br>
                       <label for="lname">Last name:</label><br>
-                      <input type="text" id="lname" name="lname" [(ngModel)] = "last_name"><br><br>
+                      <input type="text" id="lname" name="lname" [(ngModel)] = "lastName"><br><br>
                       <input type="submit" value="Submit" (click)="signUp()">
                       <div class="text-danger text-center" [hidden] = "hiddenToggle">Coudln't sign up, please try again.</div>
                     </div>

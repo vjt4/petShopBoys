@@ -1,9 +1,13 @@
 <div class="card-container">
   <div class="card">
-    <h2>{{ pet.name }}</h2>
-    <img style="width: 600px" src="{{ pet.img }}" />
-    <p>Species: {{ pet.species }}</p>
-    <p>Age: {{ pet.age }}</p>
-    <p>Size: {{ pet.size }}</p>
+    <h2>{{ pet[petRoute].name }}</h2>
+    <img style="width: 600px" src="{{ pet[petRoute].picture }}" />
+    <p>Species: {{ pet[petRoute].species }}</p>
+    <p>Breed: {{ pet[petRoute].breed }}</p>
+    <p>Age: {{ pet[petRoute].age }}</p>
+    <p>Gender: {{ pet[petRoute].gender }}</p>
+    <p>Size: {{ pet[petRoute].size }}</p>
+    <p>Price: {{ pet[petRoute].price }}</p>
+
   </div>
 </div>

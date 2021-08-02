@@ -2,6 +2,7 @@ import { Binary } from "@angular/compiler";
 
 export class Pets {
     constructor(
+        private animalId:number,
         private name:string,
         private species:string,
         private breed:string,
