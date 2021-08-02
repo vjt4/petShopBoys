@@ -11,7 +11,7 @@
         	
         	<!-- JDBC credentials -->
         	<property name="hibernate.connection.username">postgres</property>
-        	<property name="hibernate.connection.password">254808</property>
+        	<property name="hibernate.connection.password">password</property>
         	<property name="hibernate.connection.url">jdbc:postgresql://localhost:5432/postgres?currentSchema=p2</property>
         	<property name="hibernate.connection.driver_class">org.postgresql.Driver</property>
         	
