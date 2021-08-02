@@ -34,5 +34,15 @@ public class AnimalService {
 		aDAO.updateAnimalIntoCart(animalId);
 		
 	}
+	
+	public List<Animals> getAnimalsById(int animalId) {
+		aDAO.getAnimalById(animalId);
+		return null;
+	}
+
+	public Animals getAnimalByCartId(int animalId) {
+		aDAO.getAnimalByCartId(animalId);
+		return null;
+	}
 
 }

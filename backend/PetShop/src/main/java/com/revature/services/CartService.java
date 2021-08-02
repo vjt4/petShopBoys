@@ -47,7 +47,10 @@ public class CartService {
 	}
 
 	public void checkout() {
-		cDAO.checkout();
+		System.out.println("in service");
+		cDAO.removeAnimal();
+		cDAO.clearCart();
+		
 		
 	}
 	

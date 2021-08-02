@@ -172,4 +172,41 @@ public class CartDAO implements CartInterface{
 		
 	}
 
+	@Override
+	public void removeAnimal() {
+		
+		System.out.println("in dao ");
+		Users x = uDAO.getActiveUser();
+		Cart c = getCartById(x.getCartId().getCartId());
+		Cart y = getCartById(1);
+		List<Animals> aList = aDAO.getAnimalByCartId(c.getCartId());
+		Session ses = HibernateUtil.getSession();
+		for (Animals a  : aList) {
+			System.out.println(a.toString());
+			
+			Transaction tr = ses.beginTransaction();
+			a.setCartId(y);;
+			tr.commit();
+			
+		
+		}
+		
+		HibernateUtil.closeSession();
+		
+	}
+
+	@Override
+	public void clearCart() {
+		Users x = uDAO.getActiveUser();
+		Cart c = getCartById(x.getCartId().getCartId());
+		Session ses = HibernateUtil.getSession();
+		Transaction tr = ses.beginTransaction();
+		c.setTotal(0);
+		
+		tr.commit();
+		HibernateUtil.closeSession();
+		
+		
+	}
+
 }

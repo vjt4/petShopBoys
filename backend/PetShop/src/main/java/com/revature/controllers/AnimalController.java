@@ -2,6 +2,7 @@ package com.revature.controllers;
 
 import java.io.BufferedReader;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
@@ -18,9 +19,8 @@ public class AnimalController {
 
 	public void getAllAnimals(HttpServletRequest req, HttpServletResponse res) throws IOException{
 		
-		List<Animals> animalList = as.getAllAnimals();
-		
-		String json = om.writeValueAsString(animalList);
+		List<Animals> tempList = as.getAllAnimals();	
+		String json = om.writeValueAsString(tempList);
 		
 		res.getWriter().print(json);
 		
@@ -55,6 +55,31 @@ public class AnimalController {
 		
 		res.setStatus(200);
 		
+	}
+	
+	public void getAnimalsById(HttpServletRequest req, HttpServletResponse res) throws IOException {
+		BufferedReader reader = req.getReader();
+		StringBuilder sb = new StringBuilder();
+		String line = reader.readLine();
+
+		while(line != null) {
+			sb.append(line);
+			line = reader.readLine();
+		}
+
+		String body = new String(sb);
+
+		Animals aDTO = om.readValue(body, Animals.class);
+		//System.out.println(aDTO.toString());
+		Animals animalList = (Animals) as.getAnimalById(aDTO.getAnimalId());
+		//System.out.println(animalList.toString());
+		String json = om.writeValueAsString(animalList);
+
+		res.setContentType("application/json");
+		res.getWriter().print(json);
+
+		res.setStatus(200);
+
 	}
 	
 }

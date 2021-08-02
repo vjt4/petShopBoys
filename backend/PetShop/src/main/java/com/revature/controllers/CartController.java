@@ -105,7 +105,7 @@ public class CartController {
 	}
 
 	public void checkout(HttpServletRequest req, HttpServletResponse res) {
-		
+		System.out.println("in controller");
 		cs.checkout();
 		
 	}

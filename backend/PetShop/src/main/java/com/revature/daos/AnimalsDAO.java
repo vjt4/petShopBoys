@@ -31,7 +31,8 @@ public class AnimalsDAO implements AnimalsInterface {
 
 		Session ses = HibernateUtil.getSession();
 		
-		List<Animals> animalList = ses.createQuery("from Animals").list();
+		List<Animals> animalList = ses.createQuery("from Animals where cart_id_fk = null").list();
+		System.out.println("getting all animals");
 		
 		//HibernateUtil.closeSession();
 		
@@ -100,19 +101,16 @@ public class AnimalsDAO implements AnimalsInterface {
 
 	@Override
 	public List<Animals> getAnimalByCartId(int cartId) {
-		List<Animals> aList = getAllAnimals();
-		List<Animals> temp = new ArrayList<Animals>();
-		for(Animals a : aList) {
-			
-			if(a.getCartId() != null) {
-				if(a.getCartId().getCartId() == cartId) {
-					temp.add(a);
-				}
-				
-			}
-		}
+		Session ses = HibernateUtil.getSession();
+		List<Animals> animalList = ses.createQuery("from Animals where cart_id_fk = :cartId")
+				.setParameter("cartId",cartId)
+				.list();
+		System.out.println("getting animals by cart Id");
 		
-		return temp;
+		//HibernateUtil.closeSession();
+		
+		return animalList;
+		
 	}
 
 }

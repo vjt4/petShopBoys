@@ -23,5 +23,9 @@ public interface CartInterface {
 	public void updateCartTotal(double totalCost);
 
 	public void checkout();
+
+	public void removeAnimal();
+
+	public void clearCart();
 	
 }

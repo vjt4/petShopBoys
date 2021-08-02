@@ -124,6 +124,14 @@ protected void doPost(HttpServletRequest req, HttpServletResponse res) throws Se
 			ac.getAnimalsBySpecies(req, res);
 			break;
 		}
+		
+		case "pet-by-id":
+		{
+			//gets pet by id
+			System.out.println(URI);
+			ac.getAnimalsById(req, res);
+			break;
+		}
 			
 		
 	}
