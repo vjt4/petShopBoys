@@ -33,13 +33,13 @@ export class NavbarComponent implements OnInit {
       (data:Userlogout) => {
         this.loggedOut = data;
         this.loggedIn = false;
+        this.hiddenToggle = false;
         console.log(this.loggedOut);
       },
 
       () => {
         this.loggedOut = null;
-        console.log("couldn't sign up")
-        this.hiddenToggle = false;
+        console.log("couldn't logout")
       }
     )
 

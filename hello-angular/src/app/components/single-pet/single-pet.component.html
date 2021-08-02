@@ -1,13 +1,37 @@
-<div class="card-container">
-  <div class="card">
-    <h2>{{ pet[petRoute].name }}</h2>
-    <img style="width: 600px" src="{{ pet[petRoute].picture }}" />
-    <p>Species: {{ pet[petRoute].species }}</p>
-    <p>Breed: {{ pet[petRoute].breed }}</p>
-    <p>Age: {{ pet[petRoute].age }}</p>
-    <p>Gender: {{ pet[petRoute].gender }}</p>
-    <p>Size: {{ pet[petRoute].size }}</p>
-    <p>Price: {{ pet[petRoute].price }}</p>
+<style>
+    .container{
+        width: 100%;
+        display: flex;
+        flex-wrap: wrap;
+        flex-direction: row;
+        justify-content: space-around;
+    }
 
-  </div>
+    .pet-attributes{
+        margin-top: 15%;
+    }
+
+    button{
+        width: 100px;
+        margin-left: -20%;
+        margin-top: 2%;
+        border: 1px black solid;
+    }
+
+</style>
+
+<div class="container">
+  <div class="pet-name-img">
+    <h2 class="text-center">{{ pet[petRoute].name |titlecase }}</h2>
+    <img class="picture" src="{{ pet[petRoute].picture }}" />
+   </div>
+    <ul class="pet-attributes">
+        <li>Species: {{ pet[petRoute].species |titlecase }}</li>
+        <li>Breed: {{ pet[petRoute].breed |titlecase }}</li>
+        <li>Age: {{ pet[petRoute].age |titlecase }}</li>
+        <li>Gender: {{ pet[petRoute].gender |titlecase }}</li>
+        <li>Size: {{ pet[petRoute].size |titlecase }}</li>
+        <li>Price: ${{ pet[petRoute].price }}</li><br>
+        <button type="button" class="btn btn-warning btn-sm text-danger">Add to Cart</button>
+    </ul>
 </div>

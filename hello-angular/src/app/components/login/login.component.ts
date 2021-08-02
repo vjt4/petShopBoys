@@ -69,13 +69,13 @@ export class LoginComponent implements OnInit {
       (data:User) => {
         this.newUser = data;
         console.log(this.newUser);
+        this.loggedIn = true;
         this.router.navigate(['login']);
       },
 
       () => {
         this.newUser = null;
         console.log("couldn't sign up")
-        this.hiddenToggle = false;
       }
     )
 
