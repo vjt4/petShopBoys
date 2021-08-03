@@ -9,6 +9,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.revature.models.Animals;
 import com.revature.models.AnimalsDTO;
 import com.revature.models.Cart;
 import com.revature.models.CartDTO;
@@ -104,9 +105,30 @@ public class CartController {
 		
 	}
 
-	public void checkout(HttpServletRequest req, HttpServletResponse res) {
+	public void checkout(HttpServletRequest req, HttpServletResponse res) throws IOException {
 		System.out.println("in controller");
-		cs.checkout();
+		
+		BufferedReader reader = req.getReader();
+		StringBuilder sb = new StringBuilder();
+		String line = reader.readLine();
+		
+		while(line != null) {
+			sb.append(line);
+			line = reader.readLine();
+		}
+		String body = new String(sb);
+		List<AnimalsDTO> aDTO = om.readValue(body, new TypeReference<List<AnimalsDTO>>(){});
+		
+		for(AnimalsDTO a : aDTO) {
+			
+		
+			
+			Animals temp = as.getAnimalById(a.getAnimalId());
+			cs.removeFromCart(temp.getAnimalId());;
+			System.out.println(a.toString());
+		}
+		
+		
 		
 	}
 	
