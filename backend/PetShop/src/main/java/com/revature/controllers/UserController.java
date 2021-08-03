@@ -8,16 +8,21 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.revature.daos.LoginDAO;
 import com.revature.daos.UsersDAO;
 import com.revature.models.AccountDTO;
+import com.revature.models.Cart;
 import com.revature.models.Users;
+import com.revature.services.CartService;
 import com.revature.services.UserService;
 
 public class UserController {
 
 	private UsersDAO uDAO = new UsersDAO();
+	private LoginDAO lDAO = new LoginDAO();
 	private UserService us = new UserService();
 	private ObjectMapper om = new ObjectMapper();
+	private CartService cs = new CartService();
 	
 	public void createAccount(HttpServletRequest req, HttpServletResponse res) throws IOException{
 		System.out.println("in my controller");
@@ -42,7 +47,12 @@ public class UserController {
 			Users newUser = new Users(aDTO.getUsername(), aDTO.getPassword(), aDTO.getFirstName(), aDTO.getLastName(), aDTO.getEmail(), aDTO.isAdmin());
 			
 			uDAO.newUser(newUser);
+			lDAO.updateToActive(newUser.getUsername());
 			
+			
+			Cart c = new Cart();
+			cs.newCart(c);
+			cs.updateUser(c);
 			String json = om.writeValueAsString(newUser);
 			
 			res.setStatus(201);
