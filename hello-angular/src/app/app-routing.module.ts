@@ -1,7 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { AllPetsComponent } from './components/all-pets/all-pets.component';
-import { HomeComponent } from './components/home/home.component';
 import { LoginComponent } from './components/login/login.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { SinglePetComponent } from './components/single-pet/single-pet.component';
@@ -11,7 +10,7 @@ import { PetsComponent } from './components/pets/pets.component';
 const routes: Routes = [
   {
     path: '',
-    component: HomeComponent,
+    component: LoginComponent,
   },
   {
     path: 'login',
@@ -26,10 +25,6 @@ const routes: Routes = [
   {
     path: 'navbar',
     component: NavbarComponent,
-  },
-  {
-    path: 'home',
-    component: HomeComponent,
   },
   {
     path: 'pets',
