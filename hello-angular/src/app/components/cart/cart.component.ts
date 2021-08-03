@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { CheckboxControlValueAccessor } from '@angular/forms';
 import { Pets } from 'src/app/models/pets';
 import { CartService } from 'src/app/services/cart.service';
 import { PetsService } from 'src/app/services/pets.service';
@@ -12,15 +13,38 @@ export class CartComponent implements OnInit {
   items = this.CartService.getItems();
   totalamount = 0;
 
+  public purchase: any = null;
+
   constructor(private CartService: CartService) {}
 
   ngOnInit(): void {
     this.getTotal();
-    //let cart: Pets = {
-
-    //}
   }
+  checkout(): void {
+    let cart: Pets = {
+      animalId: 4,
+      name: 'RUDY',
+      species: 'dog',
+      breed: 'Rottweiler',
+      age: '3',
+      gender: 'M',
+      size: 'medium',
+      price: 350.0,
+      picture:
+        'https://emeraldagro.com.ng/wp-content/uploads/2020/08/two-rottweiler-1.jpg',
+    };
 
+    console.log(cart);
+    this.CartService.purchase(cart.animalId).subscribe(
+      (data: Pets) => {
+        this.purchase = data;
+        console.log(this.purchase);
+      },
+      () => {
+        console.log('we are experiencing a problem GD');
+      }
+    );
+  }
   getTotal() {
     let total = 0;
 
