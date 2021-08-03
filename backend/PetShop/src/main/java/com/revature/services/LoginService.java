@@ -32,5 +32,11 @@ public class LoginService {
 	public void updateToInactive(String username) {
 		lDAO.updateToInactive(username);
 	}
+
+
+	public void updateToInactive() {
+		lDAO.updateToInactive();
+		
+	}
 	
 }
