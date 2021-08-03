@@ -78,22 +78,23 @@ public class LoginController {
 	}
 
 	public void logout(HttpServletRequest req, HttpServletResponse res) throws IOException {
-		BufferedReader reader = req.getReader();
+//		BufferedReader reader = req.getReader();
+//		
+//		StringBuilder sb = new StringBuilder();
+//		
+//		String line = reader.readLine();
+//		
+//		while(line != null) {
+//			sb.append(line);
+//			line = reader.readLine();
+//		}
+//		
+//		String body = new String(sb);
+//		
+//		LoginDTO lDTO = om.readValue(body, LoginDTO.class);
 		
-		StringBuilder sb = new StringBuilder();
-		
-		String line = reader.readLine();
-		
-		while(line != null) {
-			sb.append(line);
-			line = reader.readLine();
-		}
-		
-		String body = new String(sb);
-		
-		LoginDTO lDTO = om.readValue(body, LoginDTO.class);
-		
-		ls.updateToInactive(lDTO.username);
+		//ls.updateToInactive(lDTO.username);
+		ls.updateToInactive();
 		
 		res.setStatus(200);
 		

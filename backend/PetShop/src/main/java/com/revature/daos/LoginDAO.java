@@ -53,6 +53,19 @@ public class LoginDAO {
 		
 		HibernateUtil.closeSession();
 	}
+
+	public void updateToInactive() {
+
+		Session ses = HibernateUtil.getSession();
+		Users u = uDAO.getActiveUser();
+		Transaction tr = ses.beginTransaction();
+		u.setActive(false);
+System.out.println("IT WORRKED");
+		
+		tr.commit();
+		
+		HibernateUtil.closeSession();
+	}
 	
 
 }
