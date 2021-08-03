@@ -12,7 +12,6 @@ export class NavbarComponent implements OnInit {
 
   public username:string = "";
   public loggedOut:any = null;
-  hiddenToggle:boolean = true;
   public loggedIn:boolean = true;
 
   constructor(private LogoutService: LogoutService, private router: Router) { }
@@ -33,7 +32,6 @@ export class NavbarComponent implements OnInit {
       (data:Userlogout) => {
         this.loggedOut = data;
         this.loggedIn = false;
-        this.hiddenToggle = false;
         console.log(this.loggedOut);
       },
 

@@ -3,6 +3,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { AllPetsComponent } from '../all-pets/all-pets.component';
 import { Pets } from 'src/app/models/pets';
 import { PetsService } from 'src/app/services/pets.service';
+import { CartService } from 'src/app/services/cart.service';
 
 @Component({
   selector: 'app-single-pet',
@@ -24,11 +25,13 @@ export class SinglePetComponent implements OnInit {
   public size:string = "";
   public price:number = 0;
   public picture:string = "";
+  public cart: Array<number> = [];
   
   constructor(
     private route: ActivatedRoute,
     private petsService: PetsService,
-    private Router: Router
+    private Router: Router,
+    private CartService: CartService
   ) {}
 
   ngOnInit(): void {
@@ -40,13 +43,25 @@ export class SinglePetComponent implements OnInit {
     this.petsService.getPets(this.pet).subscribe(
       (data:Pets) => {
         this.pet = data;
-        console.log(this.pet);
+        //console.log(this.pet);
       },
 
       () => {
         this.pet = null;
-        console.log("couldn't get pet")
+        //console.log("couldn't get pet")
       }
     )
+  }
+
+  // addToCart() {
+  //   //let petbyId = this.pet[this.petRoute].animalId;
+  //   let updatedCart = this.cart.push(this.petRoute);
+  //   console.log(this.pet);
+  //   return updatedCart;
+  // }
+
+  addToCart(pets: Pets[]) {
+    console.log(pets[0])
+    this.CartService.addToCart(pets[this.petRoute]);
   }
 }

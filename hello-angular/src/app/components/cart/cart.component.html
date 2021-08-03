@@ -1,1 +1,38 @@
-<p>cart works!</p>
+<style>
+
+    .cart-card {
+    width: 200px;
+    height: 170px;
+    border: lightgray 1px solid;
+    border-radius: 10px;
+    text-align: center;
+    margin: 20px;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.7);
+    transition: 0.3s;
+    background-color: #FFCB77;
+    font-family: 'Montserrat', sans-serif;
+    color: white;
+    -webkit-text-stroke-width: .2px;
+    -webkit-text-stroke-color: #FEF9EF;
+    }
+
+    .picture{
+    width:  80px;
+    height: 80px;
+    object-fit: cover;
+
+    }
+
+</style>
+
+<div class="grid-container">
+    <h3>Your Cart</h3>
+
+    <div class="cart-card" *ngFor="let item of items">
+        <img class="picture" src={{item.picture}}>
+        <p>{{ item.name }} </p>
+        <p>{{ item.price | currency }}</p>
+    </div>
+    <p>{{totalamount}}</p>
+    <button>Purchase</button>
+</div>
