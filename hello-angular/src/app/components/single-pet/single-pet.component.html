@@ -1,9 +1,45 @@
-<div class="card-container">
-  <div class="card">
-    <h2>{{ pet.name }}</h2>
-    <img style="width: 600px" src="{{ pet.img }}" />
-    <p>Species: {{ pet.species }}</p>
-    <p>Age: {{ pet.age }}</p>
-    <p>Size: {{ pet.size }}</p>
-  </div>
+<style>
+    .container{
+        background-image: url("https://previews.123rf.com/images/spicytruffel/spicytruffel1910/spicytruffel191000157/132113255-paw-foot-trail-cat-and-dog-walk-track-silhouette-wild-animal-and-pet-paw-print-texture-vector-image-.jpg");
+        background-position:100%;
+        width: 100%;
+        display: flex;
+        flex-wrap: wrap;
+        flex-direction: row;
+        justify-content: space-around;
+    }
+
+    .pet-attributes{
+        margin-top: 15%;
+    }
+
+    button{
+        width: 100px;
+        margin-left: -20%;
+        margin-top: 2%;
+        border: 1px black solid;
+    }
+
+    .picture{
+    width:  400px;
+    height: 400px;
+    object-fit: cover;
+    }
+
+</style>
+
+<div class="container">
+  <div class="pet-name-img">
+    <h2 class="text-center">{{ pet[petRoute].name |titlecase }}</h2>
+    <img class="picture" src="{{ pet[petRoute].picture }}" />
+   </div>
+    <ul class="pet-attributes">
+        <li>Species: {{ pet[petRoute].species |titlecase }}</li>
+        <li>Breed: {{ pet[petRoute].breed |titlecase }}</li>
+        <li>Age: {{ pet[petRoute].age |titlecase }}</li>
+        <li>Gender: {{ pet[petRoute].gender |titlecase }}</li>
+        <li>Size: {{ pet[petRoute].size |titlecase }}</li>
+        <li>Price: ${{ pet[petRoute].price }}</li><br>
+        <button type="button" class="btn btn-warning btn-sm text-danger" (click)="addToCart(pet)">Add to Cart</button>
+    </ul>
 </div>
