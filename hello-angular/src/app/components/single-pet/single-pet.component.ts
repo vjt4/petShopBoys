@@ -31,9 +31,11 @@ export class SinglePetComponent implements OnInit {
     this.SinglePetService.getPet(pet).subscribe(
       (data: singlePet) => {
         this.id = data;
+        console.log(this, 'in singlepet service');
       },
       () => {
-        this.animalId = 1;
+        this.id = null;
+        console.log('we are in the failure side of subscribe!');
       }
     );
   }
