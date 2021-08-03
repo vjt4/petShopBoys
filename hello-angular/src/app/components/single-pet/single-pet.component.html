@@ -1,5 +1,7 @@
 <style>
     .container{
+        background-image: url("https://previews.123rf.com/images/spicytruffel/spicytruffel1910/spicytruffel191000157/132113255-paw-foot-trail-cat-and-dog-walk-track-silhouette-wild-animal-and-pet-paw-print-texture-vector-image-.jpg");
+        background-position:100%;
         width: 100%;
         display: flex;
         flex-wrap: wrap;
@@ -18,6 +20,12 @@
         border: 1px black solid;
     }
 
+    .picture{
+    width:  400px;
+    height: 400px;
+    object-fit: cover;
+    }
+
 </style>
 
 <div class="container">
@@ -32,6 +40,6 @@
         <li>Gender: {{ pet[petRoute].gender |titlecase }}</li>
         <li>Size: {{ pet[petRoute].size |titlecase }}</li>
         <li>Price: ${{ pet[petRoute].price }}</li><br>
-        <button type="button" class="btn btn-warning btn-sm text-danger">Add to Cart</button>
+        <button type="button" class="btn btn-warning btn-sm text-danger" (click)="addToCart(pet)">Add to Cart</button>
     </ul>
 </div>
