@@ -49,6 +49,7 @@ public class MasterServlet extends HttpServlet{
 			ac.getAllAnimals(req, res);
 			break;
 		}
+		
 			
 		
 	}
@@ -103,13 +104,7 @@ protected void doPost(HttpServletRequest req, HttpServletResponse res) throws Se
 			cc.addToCart(req, res);
 			break;
 		}
-		case "checkout":
-		{
-			//deletes cart, removes animal from database
-			System.out.println(URI);
-			cc.checkout(req, res);
-			break;
-		}
+		
 		case "populate":
 		{
 			//This is to populate an empty db
@@ -130,6 +125,13 @@ protected void doPost(HttpServletRequest req, HttpServletResponse res) throws Se
 			//gets pet by id
 			System.out.println(URI);
 			ac.getAnimalsById(req, res);
+			break;
+		}
+		case "checkout":
+		{
+			//deletes cart, removes animal from database
+			System.out.println(URI);
+			cc.checkout(req, res);
 			break;
 		}
 			

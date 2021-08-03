@@ -71,7 +71,28 @@ public class CartDAO implements CartInterface{
 
 	@Override
 	public void removeFromCart(int animal_id) {
-		// TODO Auto-generated method stub
+		
+		
+		
+	
+		Cart y = getCartById(1);
+		Animals a = aDAO.getAnimalById(animal_id);
+		Session ses = HibernateUtil.getSession();
+		
+			System.out.println(a.toString());
+			
+			Transaction tr = ses.beginTransaction();
+			a.setCartId(y);;
+			tr.commit();
+			
+		
+		
+		
+		HibernateUtil.closeSession();
+		
+		
+		
+		
 		
 	}
 
