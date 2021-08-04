@@ -26,7 +26,7 @@ export class CartService {
   }
 
   purchase(cart: any): Observable<Pets> {
-    console.log(cart);
+   // console.log(cart);
     return this.http.post(
       'http://localhost:8080/PetShop/checkout',
       cart

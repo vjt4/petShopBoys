@@ -15,16 +15,27 @@ export class CartComponent implements OnInit {
 
   public purchase: any = null;
 
+  public animalId: number = 0;
+  public name: string = '';
+  public species: string = '';
+  public breed: string = '';
+  public age: string = '';
+  public gender: string = '';
+  public size: string = '';
+  public price: number = 0;
+  public picture: string = '';
+
   constructor(private CartService: CartService) {}
 
   ngOnInit(): void {
     this.getTotal();
   }
   checkout(): void {
-    let cart: Pets = {
-      animalId: 4,
+    let cart: Pets =
+     {
+      animalId: 19,
       name: 'RUDY',
-      species: 'dog',
+      species: 'fish',
       breed: 'Rottweiler',
       age: '3',
       gender: 'M',
