@@ -1,12 +1,13 @@
 <style>
-    .container{
-        background-image: url("https://previews.123rf.com/images/spicytruffel/spicytruffel1910/spicytruffel191000157/132113255-paw-foot-trail-cat-and-dog-walk-track-silhouette-wild-animal-and-pet-paw-print-texture-vector-image-.jpg");
-        background-position:100%;
+    .full-container{
         width: 100%;
+        height: 100%;
         display: flex;
         flex-wrap: wrap;
         flex-direction: row;
         justify-content: space-around;
+        background-image: url("https://previews.123rf.com/images/spicytruffel/spicytruffel1910/spicytruffel191000157/132113255-paw-foot-trail-cat-and-dog-walk-track-silhouette-wild-animal-and-pet-paw-print-texture-vector-image-.jpg");
+        background-position:100%;
     }
 
     .pet-attributes{
@@ -28,7 +29,7 @@
 
 </style>
 
-<div class="container">
+<div class="full-container">
   <div class="pet-name-img">
     <h2 class="text-center">{{ pet[petRoute].name |titlecase }}</h2>
     <img class="picture" src="{{ pet[petRoute].picture }}" />
