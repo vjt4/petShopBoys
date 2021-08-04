@@ -109,7 +109,7 @@ public class CartController {
 		System.out.println("in controller");
 		
 		BufferedReader reader = req.getReader();
-		StringBuilder sb = new StringBuilder();
+//		StringBuilder sb = new StringBuilder();
 		String line = reader.readLine();
 		System.out.println(line + "\n =====================");
 		
@@ -130,6 +130,7 @@ public class CartController {
 //			System.out.println(a.toString());
 //		}
 		Animals temp = as.getAnimalById(Integer.parseInt(line));
+		System.out.println("Animal: " + temp);
 		cs.removeFromCart(temp.getAnimalId());
 		
 		

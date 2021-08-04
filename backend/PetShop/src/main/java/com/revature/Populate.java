@@ -1,8 +1,10 @@
 package com.revature;
 
 import com.revature.daos.AnimalsDAO;
+import com.revature.daos.CartDAO;
 import com.revature.daos.UsersDAO;
 import com.revature.models.Animals;
+import com.revature.models.Cart;
 import com.revature.models.Users;
 
 
@@ -13,6 +15,10 @@ public class Populate {
 	public void please() {
 		
 		
+		
+		CartDAO cDAO = new CartDAO();
+		Cart c = new Cart(1,00);
+		cDAO.newCart(c);
 		
 		UsersDAO uDAO = new UsersDAO();
 		AnimalsDAO aDAO = new AnimalsDAO();
