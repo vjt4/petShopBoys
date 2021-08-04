@@ -2,23 +2,44 @@
     .full-container{
         width: 100%;
         height: 100%;
-        display: flex;
-        flex-wrap: wrap;
-        flex-direction: row;
-        justify-content: space-around;
         background-image: url("https://previews.123rf.com/images/spicytruffel/spicytruffel1910/spicytruffel191000157/132113255-paw-foot-trail-cat-and-dog-walk-track-silhouette-wild-animal-and-pet-paw-print-texture-vector-image-.jpg");
         background-position:100%;
     }
 
+    .pet-name-img{
+        color: #FFCB77;
+        -webkit-text-stroke-width: .2px;
+        -webkit-text-stroke-color: #FE6D73;
+    }
+
+    .text-center{
+        font-size: 60px;
+    }
+
+    .card-container{
+        display: flex;
+        flex-wrap: wrap;
+        flex-direction: row;
+        justify-content: space-evenly;
+    }
+
     .pet-attributes{
-        margin-top: 15%;
+        width: 150px;
+        height: 280px;
+        border: lightgray 1px solid;
+        border-radius: 50px;
+        margin: 12%;
+        box-shadow: 0 4px 8px 0 rgba(0,0,0,0.7);
+        transition: 0.3s;
+        background-color: #FFCB77;
+        color: #FE6D73;
+        -webkit-text-stroke-width: .2px;
+        -webkit-text-stroke-color: #FEF9EF;
     }
 
     button{
-        width: 100px;
-        margin-left: -20%;
-        margin-top: 2%;
-        border: 1px black solid;
+        width: 90px;
+        border: 1px #FE6D73 solid;
     }
 
     .picture{
@@ -30,17 +51,19 @@
 </style>
 
 <div class="full-container">
-  <div class="pet-name-img">
-    <h2 class="text-center">{{ pet[petRoute].name |titlecase }}</h2>
-    <img class="picture" src="{{ pet[petRoute].picture }}" />
-   </div>
-    <ul class="pet-attributes">
-        <li>Species: {{ pet[petRoute].species |titlecase }}</li>
-        <li>Breed: {{ pet[petRoute].breed |titlecase }}</li>
-        <li>Age: {{ pet[petRoute].age |titlecase }}</li>
-        <li>Gender: {{ pet[petRoute].gender |titlecase }}</li>
-        <li>Size: {{ pet[petRoute].size |titlecase }}</li>
-        <li>Price: ${{ pet[petRoute].price }}</li><br>
-        <button type="button" class="btn btn-warning btn-sm text-danger" (click)="addToCart(pet)">Add to Cart</button>
-    </ul>
+  <div class="card-container">
+    <div class="pet-name-img">
+        <h2 class="text-center">{{ pet[petRoute].name |titlecase }}</h2>
+        <img class="picture" src="{{ pet[petRoute].picture }}" />
+    </div>
+        <ul class="pet-attributes"><br><br>
+            <li>Species: {{ pet[petRoute].species |titlecase }}</li>
+            <li>Breed: {{ pet[petRoute].breed |titlecase }}</li>
+            <li>Age: {{ pet[petRoute].age |titlecase }}</li>
+            <li>Gender: {{ pet[petRoute].gender |titlecase }}</li>
+            <li>Size: {{ pet[petRoute].size |titlecase }}</li>
+            <li>Price: ${{ pet[petRoute].price }}</li><br>
+            <button type="button" class="btn btn-warning btn-sm text-danger" (click)="addToCart(pet)">Add to Cart</button>
+        </ul>
+    </div>
 </div>
