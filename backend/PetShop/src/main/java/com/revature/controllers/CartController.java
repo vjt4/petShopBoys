@@ -111,22 +111,26 @@ public class CartController {
 		BufferedReader reader = req.getReader();
 		StringBuilder sb = new StringBuilder();
 		String line = reader.readLine();
+		System.out.println(line + "\n =====================");
 		
-		while(line != null) {
-			sb.append(line);
-			line = reader.readLine();
-		}
-		String body = new String(sb);
-		List<AnimalsDTO> aDTO = om.readValue(body, new TypeReference<List<AnimalsDTO>>(){});
-		
-		for(AnimalsDTO a : aDTO) {
-			
-		
-			
-			Animals temp = as.getAnimalById(a.getAnimalId());
-			cs.removeFromCart(temp.getAnimalId());;
-			System.out.println(a.toString());
-		}
+//		while(line != null) {
+//			sb.append(line);
+//			line = reader.readLine();
+//		}
+//		String body = new String(sb);
+//		List<AnimalsDTO> aDTO = om.readValue(body, new TypeReference<List<AnimalsDTO>>(){});
+//		
+//		for(AnimalsDTO a : aDTO) {
+//			
+//			System.out.println("In for loop");
+//			
+//			Animals temp = as.getAnimalById(a.getAnimalId());
+//			
+//			cs.removeFromCart(temp.getAnimalId());
+//			System.out.println(a.toString());
+//		}
+		Animals temp = as.getAnimalById(Integer.parseInt(line));
+		cs.removeFromCart(temp.getAnimalId());
 		
 		
 		

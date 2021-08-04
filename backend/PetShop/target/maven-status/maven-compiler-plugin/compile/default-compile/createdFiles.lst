@@ -23,6 +23,7 @@ com\revature\services\UserService.class
 com\revature\daos\LoginDAO.class
 com\revature\models\AnimalsDTO.class
 com\revature\daos\AnimalsInterface.class
+com\revature\controllers\CartController$2.class
 com\revature\models\Users.class
 com\revature\services\LoginService.class
 com\revature\daos\UsersDAO.class

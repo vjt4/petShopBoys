@@ -73,10 +73,11 @@ public class CartDAO implements CartInterface{
 	public void removeFromCart(int animal_id) {
 		
 		
-		
+		System.out.println("\n\nI am here");
 	
 		Cart y = getCartById(1);
 		Animals a = aDAO.getAnimalById(animal_id);
+		System.out.println(a.toString() + "\n\n");
 		Session ses = HibernateUtil.getSession();
 		
 			System.out.println(a.toString());
