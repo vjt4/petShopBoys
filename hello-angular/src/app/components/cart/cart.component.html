@@ -1,38 +1,76 @@
 <style>
-
-    .cart-card {
+  body {
+    background: #4c268f;
+    color: #99eeb4;
+    height: 100vh;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .cart-card {
     width: 200px;
     height: 170px;
     border: lightgray 1px solid;
     border-radius: 10px;
     text-align: center;
     margin: 20px;
-    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.7);
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.7);
     transition: 0.3s;
-    background-color: #FFCB77;
-    font-family: 'Montserrat', sans-serif;
+    background-color: #ffcb77;
+    font-family: "Montserrat", sans-serif;
     color: white;
-    -webkit-text-stroke-width: .2px;
-    -webkit-text-stroke-color: #FEF9EF;
-    }
+    -webkit-text-stroke-width: 0.2px;
+    -webkit-text-stroke-color: #fef9ef;
+  }
 
-    .picture{
-    width:  80px;
+  .picture {
+    width: 80px;
     height: 80px;
     object-fit: cover;
-
-    }
-
+  }
+  .form-group {
+    color: white;
+    font-size: 1rem;
+    margin-left: 1rem;
+    padding: 1rem 2.5rem;
+    position: absolute;
+    bottom: 300;
+    border: none;
+    border-radius: 3px;
+    background-color: #cdb196;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.25);
+    transition: all 0.3s ease;
+  }
+  h3 {
+    text-shadow: 4px 4px;
+    color: #ffcb77;
+    position: relative;
+    font-family: "Avenir Next", sans-serif;
+    font-weight: 900;
+    font-size: 64px;
+    text-transform: uppercase;
+    font-style: italic;
+    letter-spacing: 0.05em;
+    display: inline-block;
+  }
 </style>
 
 <div class="grid-container">
-    <h3>Your Cart</h3>
+  <h3 class="cart-title">Cart</h3>
 
-    <div class="cart-card" *ngFor="let item of items">
-        <img class="picture" src={{item.picture}}>
-        <p>{{ item.name }} </p>
-        <p>{{ item.price | currency }}</p>
-    </div>
-    <p>{{totalamount}}</p>
-    <button>Purchase</button>
+  <div class="cart-card" *ngFor="let item of items">
+    <img class="picture" src="{{ item.picture }}" />
+    <p>{{ item.name }}</p>
+    <p>{{ item.price | currency }}</p>
+  </div>
+  <p>Total Cost: {{ totalamount }}</p>
+  <div class="form-group">
+    <input
+      type="submit"
+      value="checkout"
+      class="btn float-left login_btn"
+      (click)="checkout()"
+    />
+  </div>
 </div>
