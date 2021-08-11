@@ -19,8 +19,8 @@ E-commerce application where user can negivate to our client, be able to login o
 * 3b. Run the command "ng serve -o" in your front end terminal to display the page
 
 # Contributors
-*Alonso Rodriguez
-*DJ Khatiwada
-*Chris Bellaro
-*Ryan Gray
-*Virge Trotter
+* Alonso Rodriguez
+* DJ Khatiwada
+* Chris Bellaro
+* Ryan Gray
+* Virge Trotter
